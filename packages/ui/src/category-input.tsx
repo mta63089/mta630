@@ -1,13 +1,13 @@
 "use client";
 
+import { FerrisWheel } from "lucide-react";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
 import {
   MultipleSelector,
   MultipleSelectorProps,
   Option,
-} from "@/components/ui/multiple-selector";
-import { FerrisWheel } from "lucide-react";
-import { useEffect, useState } from "react";
-import { toast } from "sonner";
+} from "./ui/multiple-selector";
 
 export function CategoryInput({ ...props }: MultipleSelectorProps) {
   const [options, setOptions] = useState<Option[]>([]);

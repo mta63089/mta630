@@ -2,14 +2,14 @@
 
 import { Mail, PlusCircle } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "./ui/button";
 import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar";
+} from "./ui/sidebar";
 
 export function NavMain({
   items,

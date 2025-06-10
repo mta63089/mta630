@@ -1,9 +1,8 @@
 "use client";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { PlusCircle, User } from "lucide-react";
-import Link from "next/link";
-import AuthButtons from "./auth-buttons";
+import AuthButtons from "../../../apps/www/src/components/auth-buttons";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Button } from "./ui/button";
 import {
   DropdownMenu,
@@ -32,15 +31,15 @@ export function UserMenu() {
           <AuthButtons />
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <Link href="/user/profile">
+        <a href="/user/profile">
           <DropdownMenuItem>Profile</DropdownMenuItem>
-        </Link>
-        <Link href="/admin/announcements">
+        </a>
+        <a href="/admin/announcements">
           <DropdownMenuItem className="flex items-center gap-2">
             <PlusCircle className="size-4" />
             Make an Announcement
           </DropdownMenuItem>
-        </Link>
+        </a>
       </DropdownMenuContent>
     </DropdownMenu>
   );

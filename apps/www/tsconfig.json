@@ -22,6 +22,36 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "../../packages/ui/src/app-sidebar.tsx",
+    "src/components/auth-buttons.tsx",
+    "../../packages/ui/src/background-media.tsx",
+    "../../packages/ui/src/category-input.tsx",
+    "../../packages/ui/src/chart-area-interactive.tsx",
+    "../../packages/ui/src/data-table.tsx",
+    "../../packages/ui/src/feature-list.tsx",
+    "../../packages/ui/src/hero.tsx",
+    "../../packages/ui/src/link-hub.tsx",
+    "../../packages/ui/src/login-form.tsx",
+    "../../packages/ui/src/mode-switcher.tsx",
+    "../../packages/ui/src/nav-documents.tsx",
+    "../../packages/ui/src/nav-main.tsx",
+    "../../packages/ui/src/nav-secondary.tsx",
+    "../../packages/ui/src/nav-user.tsx",
+    "../../packages/ui/src/post-form.tsx",
+    "../../packages/ui/src/post-list.tsx",
+    "../../packages/ui/src/section-cards.tsx",
+    "../../packages/ui/src/session-provider.tsx",
+    "../../packages/ui/src/single-post.tsx",
+    "../../packages/ui/src/site-footer.tsx",
+    "../../packages/ui/src/site-header.tsx",
+    "../../packages/ui/src/tailwind-indicator.tsx",
+    "../../packages/ui/src/theme-provider.tsx",
+    "../../packages/ui/src/user-menu.tsx"
+  ],
   "exclude": ["node_modules"]
 }
