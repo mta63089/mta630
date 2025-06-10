@@ -1,0 +1,19 @@
+{
+  "name": "mta630",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "node": ">=22.14.0",
+    "pnpm": ">=9.6.0"
+  },
+  "author": {
+    "name": "Michael Albert",
+    "url": "https://www.mta630.com"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT",
+  "packageManager": "pnpm@10.10.0"
+}
