@@ -34,7 +34,7 @@
     "../../packages/ui/src/chart-area-interactive.tsx",
     "../../packages/ui/src/data-table.tsx",
     "../../packages/ui/src/feature-list.tsx",
-    "../../packages/ui/src/hero.tsx",
+    "src/components/hero.tsx",
     "../../packages/ui/src/link-hub.tsx",
     "../../packages/ui/src/login-form.tsx",
     "../../packages/ui/src/mode-switcher.tsx",

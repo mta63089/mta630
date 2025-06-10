@@ -1,22 +1,12 @@
-import { Card, CardContent } from "@/components/ui/card";
+import * as React from "react";
+import { Icons } from "./icons";
+import { Card, CardContent } from "./ui/card";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
-import {
-  Facebook,
-  Figma,
-  Github,
-  Instagram,
-  Linkedin,
-  Slack,
-  Twitch,
-  Twitter,
-  Youtube,
-} from "lucide-react";
-import * as React from "react";
+} from "./ui/tooltip";
 
 interface LinkItem {
   href: string;
@@ -24,57 +14,65 @@ interface LinkItem {
   icon: React.ReactNode;
 }
 
-const links: LinkItem[] = [
+const linkItems: LinkItem[] = [
   {
     href: "https://twitter.com",
     label: "Twitter",
-    icon: <Twitter className="size-6" />,
+    icon: <Icons.twitter className="size-6" />,
   },
   {
     href: "https://facebook.com",
     label: "Facebook",
-    icon: <Facebook className="size-6" />,
+    icon: <Icons.facebook className="size-6" />,
   },
   {
     href: "https://instagram.com",
     label: "Instagram",
-    icon: <Instagram className="size-6" />,
+    icon: <Icons.instagram className="size-6" />,
   },
   {
     href: "https://linkedin.com",
     label: "LinkedIn",
-    icon: <Linkedin className="size-6" />,
+    icon: <Icons.linkedin className="size-6" />,
   },
   {
     href: "https://github.com",
     label: "GitHub",
-    icon: <Github className="size-6" />,
+    icon: <Icons.gitHub className="size-6" />,
   },
   {
     href: "https://youtube.com",
     label: "YouTube",
-    icon: <Youtube className="size-6" />,
+    icon: <Icons.youtube className="size-6" />,
   },
   {
     href: "https://twitch.tv",
     label: "Twitch",
-    icon: <Twitch className="size-6" />,
+    icon: <Icons.twitch className="size-6" />,
   },
   {
     href: "https://slack.com",
     label: "Slack",
-    icon: <Slack className="size-6" />,
+    icon: <Icons.slack className="size-6" />,
   },
   {
     href: "https://figma.com",
     label: "Figma",
-    icon: <Figma className="size-6" />,
+    icon: <Icons.figma className="size-6" />,
   },
 ];
 
-export function LinkHub() {
+interface LinkHubProps
+  extends React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLElement>,
+    HTMLElement
+  > {
+  links?: LinkItem[];
+}
+
+export function LinkHub({ links = linkItems, ...props }: LinkHubProps) {
   return (
-    <section className="container py-16">
+    <section className="container py-16" {...props}>
       <Card className="mx-auto py-16">
         <CardContent className="p-6">
           <h2 className="mb-10 text-center text-2xl font-bold">

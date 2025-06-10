@@ -3,7 +3,7 @@
 import { cva } from "class-variance-authority";
 import { useRef, useState } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "./lib/utils";
 
 type OverlayVariant = "none" | "light" | "dark";
 type MediaType = "image" | "video";

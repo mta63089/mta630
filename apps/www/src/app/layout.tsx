@@ -1,8 +1,7 @@
-import { ThemeProvider } from "@/components/theme-provider";
-import { Toaster } from "@/components/ui/sonner";
 import { fontMono, fontSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
+import { ThemeProvider, Toaster } from "@mta630/ui";
 
 // TODO implement
 // export const metadata: Metadata = {

@@ -1,6 +1,5 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
 import {
   CalendarRange,
   Image as ImageIcon,
@@ -9,7 +8,7 @@ import {
   Trophy,
   Users,
 } from "lucide-react";
-import Image from "next/image";
+import { Badge } from "./ui/badge";
 
 interface FeatureCardProps {
   icon: React.ElementType;
@@ -80,7 +79,7 @@ export function FeatureList() {
             ))}
           </div>
           <div className="hidden h-full rounded-lg lg:block">
-            <Image
+            <img
               src="https://esosslfiles-a.akamaihd.net/cms/2020/10/2526693e74b462fd8740b9e0640f67b6.jpg"
               alt="A guild on the march"
               width={400}
