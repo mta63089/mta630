@@ -2,19 +2,10 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { Menu } from "lucide-react"
 
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-} from "@/components/ui/dropdown-menu"
-import { ModeSwitcher } from "@/components/mode-switcher"
 
 export function SiteHeader() {
   return (
@@ -52,23 +43,9 @@ export function SiteHeader() {
             </ul>
           </nav>
 
-          <div className="flex items-center gap-4">
+          {/* <div className="flex items-center gap-4">
             <ModeSwitcher />
-            <DropdownMenu>
-              <DropdownMenuContent align="end" className="w-[300px]">
-                <DropdownMenuLabel>Notifications</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>New message from Alice</DropdownMenuItem>
-                <DropdownMenuItem>
-                  Project &quot;X&quot; completed
-                </DropdownMenuItem>
-                <DropdownMenuItem>3 new team members joined</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-            <Button variant="link" size="icon" className="md:hidden">
-              <Menu className="size-5" />
-            </Button>
-          </div>
+          </div> */}
         </div>
       </div>
     </header>
