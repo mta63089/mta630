@@ -2,9 +2,9 @@
 import { NextResponse } from "next/server"
 import { Storage } from "@google-cloud/storage"
 
-const storage = new Storage({
-  keyFilename: process.env.GOOGLE_CLOUD_KEY_PATH,
-})
+import { credentials } from "@/lib/gcloud"
+
+const storage = new Storage({ credentials })
 const bucketName = process.env.GOOGLE_CLOUD_BUCKET || ""
 const bucket = storage.bucket(bucketName)
 
