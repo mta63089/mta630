@@ -1,30 +1,26 @@
-"use client";
+"use client"
 
-import { ModeSwitcher } from "@/components/mode-switcher";
-import { Button } from "@/components/ui/button";
+import Image from "next/image"
+import Link from "next/link"
+import { Menu } from "lucide-react"
+
+import { siteConfig } from "@/config/site"
+import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-} from "@/components/ui/dropdown-menu";
-import { siteConfig } from "@/config/site";
-import { cn } from "@/lib/utils";
-import { Menu } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import * as React from "react";
+} from "@/components/ui/dropdown-menu"
+import { ModeSwitcher } from "@/components/mode-switcher"
 
 export function SiteHeader() {
-  const [isScrolled, setIsScrolled] = React.useState(false);
-  const [activeNavItem, setActiveNavItem] = React.useState("Dashboard");
-
   return (
     <header
       className={cn(
-        "sticky left-0 right-0 top-0 z-50 bg-muted transition-all duration-300 shadow-2xl",
-        isScrolled ? "shadow-md" : ""
+        "bg-secondary sticky top-5 right-0 left-0 z-50 border px-2 shadow-2xl transition-all duration-300"
       )}
     >
       <div className="container mx-auto">
@@ -34,7 +30,7 @@ export function SiteHeader() {
               <Image
                 src={"/logo.png"}
                 alt="GuildForge Logo"
-                className="size-8 shadow rounded-full"
+                className="size-8 rounded-full shadow"
                 width={100}
                 height={100}
               />
@@ -49,12 +45,7 @@ export function SiteHeader() {
               {siteConfig.nav.map((item) => (
                 <li key={item.name}>
                   <Link href={item.href}>
-                    <Button
-                      variant="outline"
-                      onClick={() => setActiveNavItem(item.name)}
-                    >
-                      {item.name}
-                    </Button>
+                    <Button variant="outline">{item.name}</Button>
                   </Link>
                 </li>
               ))}
@@ -81,5 +72,5 @@ export function SiteHeader() {
         </div>
       </div>
     </header>
-  );
+  )
 }

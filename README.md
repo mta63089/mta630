@@ -11,3 +11,5 @@ This is the repository home for my personal sandbox website mta630.com
 ![tien_2](https://github.com/user-attachments/assets/e9962b81-9ff3-421b-a59f-4d7bf2336c76)
 ![gotenks_16](https://github.com/user-attachments/assets/8f03da5d-b52d-4a0a-ade9-515e41c23d86)
 ![goku_70](https://github.com/user-attachments/assets/240e0bdd-87a6-487a-b51a-ce0a9981c609)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/64c5acfa-4fb3-42d0-a79b-6cce4535b96d/deploy-status)](https://app.netlify.com/projects/mta630/deploys)

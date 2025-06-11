@@ -1,16 +1,17 @@
-import { MessageSquare, MoreHorizontal, Share2, ThumbsUp } from "lucide-react";
-import Image from "next/image";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { Button } from "./ui/button";
-import { Card, CardContent } from "./ui/card";
+import Image from "next/image"
+import { MessageSquare, MoreHorizontal, Share2, ThumbsUp } from "lucide-react"
+
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
+import { Button } from "./ui/button"
+import { Card } from "./ui/card"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
-import { Input } from "./ui/input";
-import { Textarea } from "./ui/textarea";
+} from "./ui/dropdown-menu"
+import { Input } from "./ui/input"
+import { Textarea } from "./ui/textarea"
 
 const BlogPost = {
   title: "Best Practices for Developing Quantum Algorithms with QuantumLeap AI",
@@ -70,7 +71,7 @@ const BlogPost = {
          Join us in this exciting journey as we push the boundaries of quantum computing with QuantumLeap AI. Together we can bring about the next revolution in technology!
       </p>
   `,
-};
+}
 
 const comments = [
   {
@@ -104,7 +105,7 @@ const comments = [
     likes: 12,
   },
   // Add more comments as needed
-];
+]
 
 const relatedArticles = [
   {
@@ -122,7 +123,7 @@ const relatedArticles = [
     readTime: "8 minutes",
   },
   // Add more related articles as needed
-];
+]
 
 export function SinglePost() {
   return (
@@ -133,7 +134,7 @@ export function SinglePost() {
             <address className="mb-6 flex items-center not-italic">
               <div className="mr-3 inline-flex items-center text-sm text-gray-900 dark:text-white">
                 <Image
-                  className="mr-4 h-16 w-16 rounded-full ring-2 ring-primary"
+                  className="ring-primary mr-4 h-16 w-16 rounded-full ring-2"
                   src="https://placehold.co/900/EBEDED/C3C9C9?text=O&font=poppins.svg"
                   alt={BlogPost.author}
                   height={64}
@@ -156,7 +157,7 @@ export function SinglePost() {
                 </div>
               </div>
             </address>
-            <h1 className="mb-4 text-3xl font-extrabold leading-tight text-gray-900 dark:text-white lg:mb-6 lg:text-4xl">
+            <h1 className="mb-4 text-3xl leading-tight font-extrabold text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">
               {BlogPost.title}
             </h1>
           </header>
@@ -200,7 +201,7 @@ export function SinglePost() {
             </form>
             {comments.map((comment) => (
               <Card key={comment.id} className="mb-6">
-                <CardContent className="p-6">
+                <Card.Content className="p-6">
                   <footer className="mb-2 flex items-center justify-between">
                     <div className="flex items-center">
                       <Avatar className="mr-3 h-8 w-8">
@@ -243,14 +244,14 @@ export function SinglePost() {
                       Reply
                     </Button>
                   </div>
-                </CardContent>
+                </Card.Content>
               </Card>
             ))}
           </section>
         </article>
         <aside className="lg:w-1/3">
           <Card>
-            <CardContent className="p-6">
+            <Card.Content className="p-6">
               <h3 className="mb-4 text-lg font-semibold">Related articles</h3>
               {relatedArticles.map((article, index) => (
                 <div key={index} className="mb-4">
@@ -261,7 +262,7 @@ export function SinglePost() {
                     alt={article.title}
                     className="mb-2 h-48 w-full rounded-lg object-cover"
                   />
-                  <h4 className="mb-2 text-xl font-bold leading-tight">
+                  <h4 className="mb-2 text-xl leading-tight font-bold">
                     <a href="#">{article.title}</a>
                   </h4>
                   <p className="mb-2">{article.excerpt}</p>
@@ -273,10 +274,10 @@ export function SinglePost() {
                   </a>
                 </div>
               ))}
-            </CardContent>
+            </Card.Content>
           </Card>
           <Card className="mt-6">
-            <CardContent className="p-6">
+            <Card.Content className="p-6">
               <h3 className="mb-4 text-lg font-semibold">
                 Sign up for our newsletter
               </h3>
@@ -296,10 +297,10 @@ export function SinglePost() {
                   Subscribe
                 </Button>
               </form>
-            </CardContent>
+            </Card.Content>
           </Card>
         </aside>
       </main>
     </div>
-  );
+  )
 }

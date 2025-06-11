@@ -4,6 +4,16 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
+interface Post {
+  id: string
+  title: string
+  preview: string
+  imageUrl?: string
+}
+interface PostListProps {
+  posts: Post[]
+}
+
 export function PostList({ posts }: PostListProps) {
   if (!posts.length) {
     return (

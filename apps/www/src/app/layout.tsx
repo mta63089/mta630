@@ -1,8 +1,10 @@
-import { ThemeProvider } from "@/components/theme-provider";
-import { Toaster } from "@/components/ui/sonner";
-import { fontMono, fontSans } from "@/lib/fonts";
-import { cn } from "@/lib/utils";
-import "@/styles/globals.css";
+import { fontMono, fontSans } from "@/lib/fonts"
+import { cn } from "@/lib/utils"
+import { Toaster } from "@/components/ui/sonner"
+import { ThemeProvider } from "@/components/theme-provider"
+
+import "@/styles/globals.css"
+
 // TODO implement
 // export const metadata: Metadata = {
 //   title: {
@@ -52,7 +54,7 @@ import "@/styles/globals.css";
 // };
 
 interface RootLayoutProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 export default async function RootLayout({ children }: RootLayoutProps) {
@@ -61,24 +63,24 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       <head />
       <body
         className={cn(
-          "min-h-svh bg-background font-sans antialiased",
+          "bg-background min-h-svh font-sans antialiased",
           fontSans.variable,
           fontMono.variable
         )}
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
           enableColorScheme
         >
-          <div className="relative flex min-h-svh flex-col bg-background">
+          <div className="bg-background relative mx-auto flex min-h-svh flex-col items-center md:max-w-3/4">
             {children}
           </div>
         </ThemeProvider>
         <Toaster />
       </body>
     </html>
-  );
+  )
 }

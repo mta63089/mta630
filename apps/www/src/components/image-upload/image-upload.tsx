@@ -7,8 +7,6 @@ import { useDropzone } from "react-dropzone"
 
 import { Input } from "@/components/ui/input"
 
-const apiKey = process.env.NEXT_PUBLIC_API_KEY
-
 interface ImageUploadProps {
   onUploadComplete?: (url: string) => void
 }
@@ -31,33 +29,39 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onUploadComplete }) => {
   const removeSelectedImage = () => {
     setLoading(false)
     setUploadedImagePath(null)
-    setSelectedImage(null)
+    if (selectedImage) setSelectedImage(null)
   }
 
-  const handleImageUpload = async (image: File) => {
-    if (!image) return
-    setLoading(true)
-    const form = new FormData()
-    form.append("file", image)
+  const handleImageUpload = useCallback(
+    async (image: File) => {
+      if (!image) return
+      setLoading(true)
+      const form = new FormData()
+      form.append("file", image)
 
-    const res = await fetch("/api/image/upload", {
-      method: "POST",
-      body: form,
-    })
+      const res = await fetch("/api/image/upload", {
+        method: "POST",
+        body: form,
+      })
 
-    const { url } = await res.json()
-    setUploadedImagePath(url)
-    setLoading(false)
-    onUploadComplete?.(url)
-  }
+      const { url } = await res.json()
+      setUploadedImagePath(url)
+      setLoading(false)
+      onUploadComplete?.(url)
+    },
+    [onUploadComplete]
+  )
 
-  const onDrop = useCallback(async (acceptedFiles: File[]) => {
-    if (acceptedFiles.length > 0) {
-      const image = acceptedFiles[0]
-      setSelectedImage(image)
-      handleImageUpload(image)
-    }
-  }, [])
+  const onDrop = useCallback(
+    async (acceptedFiles: File[]) => {
+      if (acceptedFiles.length > 0) {
+        const image = acceptedFiles[0]
+        setSelectedImage(image)
+        handleImageUpload(image)
+      }
+    },
+    [handleImageUpload]
+  )
 
   const { getRootProps, getInputProps } = useDropzone({ onDrop, noClick: true })
 

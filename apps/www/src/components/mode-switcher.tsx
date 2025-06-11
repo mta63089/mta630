@@ -1,54 +1,45 @@
-import { Button, type buttonVariants } from "@/components/ui/button";
-import type { VariantProps } from "class-variance-authority";
-import { Laptop, Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
-import * as React from "react";
+import * as React from "react"
+import type { VariantProps } from "class-variance-authority"
+import { Moon, Sun } from "lucide-react"
+import { useTheme } from "next-themes"
+
+import { Button, type buttonVariants } from "@/components/ui/button"
 
 type ButtonProps = React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
-    asChild?: boolean;
-  };
+    asChild?: boolean
+  }
 
-type Theme = "system" | "light" | "dark";
+type Theme = "light" | "dark"
 
-export interface ThemeButtonProps extends ButtonProps {
-  withText?: boolean;
-}
-
-export function ModeSwitcher({ withText = false, ...props }: ThemeButtonProps) {
-  const { theme, setTheme } = useTheme();
-  const [currentTheme, setCurrentTheme] = React.useState<Theme>("system");
+export function ModeSwitcher({ ...props }: ButtonProps) {
+  const { theme, setTheme } = useTheme()
+  const [currentTheme, setCurrentTheme] = React.useState<Theme>("light")
 
   React.useEffect(() => {
-    setCurrentTheme(theme as Theme);
-  }, [theme]);
+    setCurrentTheme(theme as Theme)
+  }, [theme])
 
   const cycleTheme = () => {
-    const themes: Theme[] = ["system", "light", "dark"];
-    const currentIndex = themes.indexOf(currentTheme);
-    const nextIndex = (currentIndex + 1) % themes.length;
-    setTheme(themes[nextIndex]);
-  };
+    const themes: Theme[] = ["light", "dark"]
+    const currentIndex = themes.indexOf(currentTheme)
+    const nextIndex = (currentIndex + 1) % themes.length
+    setTheme(themes[nextIndex])
+  }
 
   const getThemeIcon = () => {
     switch (currentTheme) {
-      case "system":
-        return <Laptop className="size-[1.2rem]" />;
       case "light":
-        return <Sun className="size-[1.2rem]" />;
+        return <Sun className="size-[1.2rem]" />
       case "dark":
-        return <Moon className="size-[1.2rem]" />;
+        return <Moon className="size-[1.2rem]" />
     }
-  };
-
-  const getThemeText = () => {
-    return currentTheme.charAt(0).toUpperCase() + currentTheme.slice(1);
-  };
+  }
 
   return (
     <Button variant="outline" size="icon" onClick={cycleTheme} {...props}>
       {getThemeIcon()}
       <span className="sr-only">Toggle theme</span>
     </Button>
-  );
+  )
 }

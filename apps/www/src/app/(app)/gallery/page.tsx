@@ -26,14 +26,19 @@ export default function GalleryPage() {
   }, [])
 
   return (
-    <div className="grid-col-3 grid items-center justify-center gap-4 md:grid-cols-5">
+    <div className="grid auto-rows-auto grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
       {images.map((img) => (
-        <Card>
-          <Card.Header>
-            <Card.Description className="self-center">
-              <Image src={img.url} alt={img.name} width={100} height={100} />
-            </Card.Description>
-          </Card.Header>
+        <Card key={img.name}>
+          <Card.Description className="break-inside-avoid self-center overflow-hidden p-0">
+            <Image
+              src={img.url}
+              alt={img.name}
+              className="h-auto max-h-full w-full max-w-full object-contain"
+              width={0}
+              height={0}
+              sizes="100vw"
+            />
+          </Card.Description>
         </Card>
       ))}
       <ImageUpload />
