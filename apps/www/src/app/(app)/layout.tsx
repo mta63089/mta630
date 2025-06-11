@@ -1,5 +1,6 @@
+import { StarsBackground } from "@/components/background-paths";
 import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "../../../../../packages/ui/src/site-header";
+import { SiteHeader } from "@/components/site-header";
 
 interface AppLayoutProps {
   children: React.ReactNode;
@@ -7,9 +8,11 @@ interface AppLayoutProps {
 
 export default function AppLayout({ children }: AppLayoutProps) {
   return (
-    <div data-wrapper="" className="border-grid flex flex-1 flex-col">
+    <div>
       <SiteHeader />
-      <main className="flex flex-1 flex-col">{children}</main>
+      <StarsBackground className="flex justify-center items-center">
+        <main className="min-h-svh z-10 mt-24">{children}</main>
+      </StarsBackground>
       <SiteFooter />
     </div>
   );

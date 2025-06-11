@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
+import { withContentlayer } from "next-contentlayer2";
 
-const nextConfig: NextConfig = {
+const config: NextConfig = {
   images: {
     remotePatterns: [
       {
@@ -9,26 +10,8 @@ const nextConfig: NextConfig = {
         port: "",
         pathname: "/**",
       },
-      {
-        protocol: "https",
-        hostname: "esosslfiles-a.akamaihd.net",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "placehold.co",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "eso-guild-uploads.s3.us-east-2.amazonaws.com",
-        port: "",
-        pathname: "/**",
-      },
     ],
   },
 };
 
-export default nextConfig;
+export default withContentlayer(config)
