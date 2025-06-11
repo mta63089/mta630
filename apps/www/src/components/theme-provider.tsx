@@ -1,10 +1,10 @@
-"use client";
+"use client"
 
-import { Provider as JotaiProvider } from "jotai";
-import { ThemeProvider as NextThemesProvider } from "next-themes";
-import * as React from "react";
+import * as React from "react"
+import { Provider as JotaiProvider } from "jotai"
+import { ThemeProvider as NextThemesProvider } from "next-themes"
 
-import { TooltipProvider } from "@mta630/ui";
+import { TooltipProvider } from "./ui/tooltip"
 
 export function ThemeProvider({
   children,
@@ -16,5 +16,5 @@ export function ThemeProvider({
         <TooltipProvider delayDuration={0}>{children}</TooltipProvider>
       </NextThemesProvider>
     </JotaiProvider>
-  );
+  )
 }

@@ -1,5 +1,5 @@
-import type { NextConfig } from "next";
-import { withContentlayer } from "next-contentlayer2";
+import type { NextConfig } from "next"
+import { withContentlayer } from "next-contentlayer2"
 
 const config: NextConfig = {
   images: {
@@ -10,8 +10,14 @@ const config: NextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "storage.googleapis.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
-};
+}
 
 export default withContentlayer(config)

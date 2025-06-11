@@ -1,10 +1,6 @@
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardTitle,
-} from "@/components/ui/card";
+import { Button } from "@/components/ui/button"
+import { Card } from "@/components/ui/card"
+import ImageUpload from "@/components/image-upload/image-upload"
 
 function ComponentCard(
   title: string,
@@ -13,16 +9,16 @@ function ComponentCard(
 ) {
   return (
     <Card className="p-4">
-      <CardTitle>{title}</CardTitle>
-      <CardDescription>{description}</CardDescription>
-      <CardContent className="self-center">{component}</CardContent>
+      <Card.Title>{title}</Card.Title>
+      <Card.Description>{description}</Card.Description>
+      <Card.Content className="self-center">{component}</Card.Content>
     </Card>
-  );
+  )
 }
 
 export default function HomePage() {
   return (
-    <div className="grid-cols-3 grid p-4 gap-4 my-4 justify-center">
+    <div className="my-4 grid grid-cols-3 justify-center gap-4 p-4">
       {ComponentCard(
         "Default Button",
         "This is the primary button component",
@@ -48,6 +44,11 @@ export default function HomePage() {
         "This is the disabled button component",
         <Button disabled>Disabled Button</Button>
       )}
+      {ComponentCard(
+        "Image Upload",
+        "This is the image upload component",
+        <ImageUpload />
+      )}
     </div>
-  );
+  )
 }

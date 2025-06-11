@@ -7,7 +7,9 @@ export const siteConfig = {
   nav: [
     { name: "Home", href: "/" },
     { name: "Docs", href: "/docs" },
+    { name: "Posts", href: "/posts" },
+    { name: "Gallery", href: "/gallery" },
   ],
-};
+}
 
-export type SiteConfig = typeof siteConfig;
+export type SiteConfig = typeof siteConfig

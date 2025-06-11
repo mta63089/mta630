@@ -4,7 +4,8 @@
 node_modules
 .pnp
 .pnp.js
-
+*node_modules/
+*node_modules
 # Local env files
 .env
 .env.local
@@ -39,3 +40,10 @@ yarn-error.log*
 *.pem
 generated
 content
+.source
+*.source/
+
+# contentlayer
+.contentlayer
+
+keys
