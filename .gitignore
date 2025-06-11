@@ -39,7 +39,6 @@ yarn-error.log*
 .DS_Store
 *.pem
 generated
-content
 .source
 *.source/
 
