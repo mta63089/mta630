@@ -1,45 +1,83 @@
-"use client"
-
-import * as React from "react"
-import * as RadioGroupPrimitive from "@radix-ui/react-radio-group"
-import { CircleIcon } from "lucide-react"
+import * as RadioPrimitive from "@radix-ui/react-radio-group"
+import { cva, VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 
-function RadioGroup({
+const radioVariants = cva("border-border border-2", {
+  variants: {
+    variant: {
+      default: "",
+      outline: "",
+      solid: "",
+    },
+    size: {
+      sm: "h-4 w-4",
+      md: "h-5 w-5",
+      lg: "h-6 w-6",
+    },
+  },
+  defaultVariants: {
+    variant: "default",
+    size: "md",
+  },
+})
+
+const radioIndicatorVariants = cva("flex ", {
+  variants: {
+    variant: {
+      default: "bg-primary border-2 border-border",
+      outline: "border-2 border-border",
+      solid: "bg-border",
+    },
+    size: {
+      sm: "h-2 w-2",
+      md: "h-2.5 w-2.5",
+      lg: "h-3.5 w-3.5",
+    },
+  },
+  defaultVariants: {
+    variant: "default",
+    size: "md",
+  },
+})
+
+export const RadioGroupRoot = ({
   className,
   ...props
-}: React.ComponentProps<typeof RadioGroupPrimitive.Root>) {
-  return (
-    <RadioGroupPrimitive.Root
-      data-slot="radio-group"
-      className={cn("grid gap-3", className)}
-      {...props}
-    />
-  )
-}
+}: React.ComponentProps<typeof RadioPrimitive.Root>) => (
+  <RadioPrimitive.Root className={cn("grid gap-2", className)} {...props} />
+)
 
-function RadioGroupItem({
+interface RadioProps
+  extends React.ComponentProps<typeof RadioPrimitive.Item>,
+    VariantProps<typeof radioVariants> {}
+
+export const RadioItem = ({
+  children,
   className,
+  size,
+  variant,
   ...props
-}: React.ComponentProps<typeof RadioGroupPrimitive.Item>) {
-  return (
-    <RadioGroupPrimitive.Item
-      data-slot="radio-group-item"
-      className={cn(
-        "border-input text-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 aspect-square size-4 shrink-0 rounded-full border shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
-        className
-      )}
-      {...props}
-    >
-      <RadioGroupPrimitive.Indicator
-        data-slot="radio-group-indicator"
-        className="relative flex items-center justify-center"
-      >
-        <CircleIcon className="fill-primary absolute top-1/2 left-1/2 size-2 -translate-x-1/2 -translate-y-1/2" />
-      </RadioGroupPrimitive.Indicator>
-    </RadioGroupPrimitive.Item>
-  )
-}
+}: RadioProps) => (
+  <RadioPrimitive.Item
+    {...props}
+    className={cn(
+      radioVariants({
+        size,
+        variant,
+      }),
+      className
+    )}
+  >
+    <RadioPrimitive.Indicator className="flex items-center justify-center">
+      <span className={radioIndicatorVariants({ size, variant })}></span>
+    </RadioPrimitive.Indicator>
+    {children}
+  </RadioPrimitive.Item>
+)
 
-export { RadioGroup, RadioGroupItem }
+const RadioComponent = Object.assign(RadioGroupRoot, {
+  Item: RadioItem,
+})
+
+export { RadioComponent as RadioGroup }

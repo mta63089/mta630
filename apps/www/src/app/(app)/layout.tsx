@@ -7,10 +7,10 @@ interface AppLayoutProps {
 
 export default function AppLayout({ children }: AppLayoutProps) {
   return (
-    <div>
+    <>
       <SiteHeader />
       <main className="z-10 mt-16 flex min-h-svh">{children}</main>
       <SiteFooter />
-    </div>
+    </>
   )
 }
