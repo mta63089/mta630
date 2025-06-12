@@ -6,7 +6,6 @@ export const siteConfig = {
   links: {},
   nav: [
     { name: "Home", href: "/" },
-    { name: "Docs", href: "/docs" },
     { name: "Posts", href: "/posts" },
     { name: "Gallery", href: "/gallery" },
   ],

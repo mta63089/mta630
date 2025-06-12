@@ -11,22 +11,24 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "bg-secondary sticky top-5 right-0 left-0 z-50 border px-2 shadow-2xl transition-all duration-300"
+        "bg-secondary sticky top-5 right-0 left-0 z-50 flex border px-2 shadow-2xl transition-all duration-300"
       )}
     >
-      <div className="container mx-auto">
+      <div className="container">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
               <Image
                 src={"/logo.png"}
-                alt="GuildForge Logo"
+                alt="mta630 logo"
                 className="size-8 rounded-full shadow"
                 width={100}
                 height={100}
               />
               <Link href="/" className="mr-6 flex items-center space-x-2">
-                <span className="text-2xl font-bold">{siteConfig.name}</span>
+                <span className="font-display text-2xl font-semibold tracking-wider">
+                  {siteConfig.name}
+                </span>
               </Link>
             </div>
           </div>

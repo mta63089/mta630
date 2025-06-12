@@ -1,4 +1,4 @@
-import { fontMono, fontSans } from "@/lib/fonts"
+import { fontDisplay, fontMono, fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { Toaster } from "@/components/ui/sonner"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -65,7 +65,8 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         className={cn(
           "bg-background min-h-svh font-sans antialiased",
           fontSans.variable,
-          fontMono.variable
+          fontMono.variable,
+          fontDisplay.variable
         )}
       >
         <ThemeProvider
@@ -75,7 +76,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
           disableTransitionOnChange
           enableColorScheme
         >
-          <div className="bg-background relative mx-auto flex min-h-svh flex-col items-center md:max-w-3/4">
+          <div className="bg-background relative mx-auto flex min-h-svh max-w-4/5 min-w-4/5 flex-col items-center md:max-w-3/5 md:min-w-3/5">
             {children}
           </div>
         </ThemeProvider>

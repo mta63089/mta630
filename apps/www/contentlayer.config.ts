@@ -5,6 +5,11 @@ const Post = defineDocumentType(() => ({
   filePathPattern: `**/*.mdx`,
   contentType: "mdx",
   fields: {
+    author: {
+      type: "string",
+      description: "the author for the post",
+      required: true,
+    },
     title: {
       type: "string",
       description: "The title of the post",

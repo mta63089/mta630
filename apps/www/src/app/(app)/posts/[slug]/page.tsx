@@ -3,7 +3,9 @@ import { allPosts } from "contentlayer/generated"
 import { format, parseISO } from "date-fns"
 import { getMDXComponent } from "next-contentlayer2/hooks"
 
-type Params = Promise<{ slug: string[] }>
+import { mdxComponents } from "@/components/mdx-components"
+
+type Params = Promise<{ slug: string }>
 
 export const generateStaticParams = async () =>
   allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
@@ -14,13 +16,15 @@ export async function generateMetadata({
   params: Params
 }): Promise<Metadata> {
   const { slug } = await params
-  const post = allPosts.find((post) => post._raw.flattenedPath === slug[0])
+
+  const post = allPosts.find((post) => post._raw.flattenedPath === slug)
   return { title: post?.title ?? "Post not found" }
 }
 
 export default async function PostPage({ params }: { params: Params }) {
   const { slug } = await params
-  const post = allPosts.find((post) => post._raw.flattenedPath === slug[0])
+
+  const post = allPosts.find((post) => post._raw.flattenedPath === slug)
 
   if (!post) {
     return (
@@ -42,7 +46,7 @@ export default async function PostPage({ params }: { params: Params }) {
         </time>
         <h1>{post.title}</h1>
       </div>
-      <Content />
+      <Content components={mdxComponents} />
     </article>
   )
 }

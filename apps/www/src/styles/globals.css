@@ -1,7 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "./typography.css";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&: is(.dark *));
 
 :root {
   --background: oklch(1 0 0);
