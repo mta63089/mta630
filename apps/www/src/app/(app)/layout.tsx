@@ -9,7 +9,9 @@ export default function AppLayout({ children }: AppLayoutProps) {
   return (
     <>
       <SiteHeader />
-      <main className="z-10 mt-16 flex min-h-svh">{children}</main>
+      <main className="z-10 mt-16 flex h-full min-h-svh w-full flex-1">
+        {children}
+      </main>
       <SiteFooter />
     </>
   )

@@ -13,6 +13,7 @@ export default function QrCodeViewer() {
 
   async function handleGenerate() {
     const img = await generateQRCode(text)
+    setText("")
     setQrCode(img)
   }
 
@@ -28,7 +29,15 @@ export default function QrCodeViewer() {
       <Button onClick={handleGenerate} variant="secondary">
         Generate QR Code
       </Button>
-      {qrCode && <Image src={qrCode} alt="QR Code" width={100} height={100} />}
+      {qrCode && (
+        <Image
+          src={qrCode}
+          alt="QR Code"
+          className="border-2 shadow-lg"
+          width={100}
+          height={100}
+        />
+      )}
     </div>
   )
 }

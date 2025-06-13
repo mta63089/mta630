@@ -43,7 +43,7 @@ export function SiteHeader() {
               />
               <Link href="/" className="mr-6 flex items-center space-x-2">
                 <span className="ml-1 text-3xl font-black tracking-tight">
-                  {`[${siteConfig.name}]`}
+                  {`[mta630]`}
                 </span>
               </Link>
             </div>

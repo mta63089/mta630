@@ -140,7 +140,7 @@
   --font-mono: var(--font-mono);
   --font-display: var(--font-display);
   --font-serif: var(--font-serif);
-
+  --font-head: var(--font-head);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);

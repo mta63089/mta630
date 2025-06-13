@@ -3,6 +3,7 @@ import { allPosts, Post } from "contentlayer/generated"
 import { compareDesc, format, parseISO } from "date-fns"
 
 import { Button } from "@/components/ui/button"
+import { Text } from "@/components/ui/text"
 
 function PostCard(post: Post) {
   return (
@@ -27,8 +28,8 @@ export default function Home() {
   )
 
   return (
-    <div className="prose mx-auto py-2">
-      <h1 className="mb-8 text-center text-3xl font-bold">Next.js Example</h1>
+    <div className="prose mx-auto flex w-full flex-col py-2">
+      <Text as="h2">{"[Blog]"}</Text>
 
       {posts.map((post, idx) => (
         <PostCard key={idx} {...post} />
