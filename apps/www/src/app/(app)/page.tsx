@@ -8,8 +8,10 @@ function ComponentCard(
   component: React.ReactNode
 ) {
   return (
-    <Card className="p-4">
-      <Card.Title>{title}</Card.Title>
+    <Card>
+      <Card.Header>
+        <Card.Title>{title}</Card.Title>
+      </Card.Header>
       <Card.Description>{description}</Card.Description>
       <Card.Content className="self-center">{component}</Card.Content>
     </Card>

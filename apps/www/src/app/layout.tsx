@@ -76,7 +76,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
           disableTransitionOnChange
           enableColorScheme
         >
-          <div className="bg-background relative mx-auto flex min-h-svh max-w-4/5 min-w-4/5 flex-col items-center md:max-w-3/5 md:min-w-3/5">
+          <div className="bg-background relative mx-auto flex min-h-svh max-w-full min-w-full flex-col items-center md:max-w-4/5 md:min-w-4/5">
             {children}
           </div>
         </ThemeProvider>

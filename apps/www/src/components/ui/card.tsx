@@ -23,14 +23,23 @@ const Card = ({ className, ...props }: ICardProps) => {
 const CardHeader = ({ className, ...props }: ICardProps) => {
   return (
     <div
-      className={cn("flex flex-col justify-start p-4", className)}
+      className={cn(
+        "bg-card-header text-card flex flex-col justify-start border border-b-2",
+        className
+      )}
       {...props}
     />
   )
 }
 
-const CardTitle = ({ className, ...props }: ICardProps) => {
-  return <Text as="h3" className={cn("mb-2", className)} {...props} />
+const CardTitle = ({ children, className, ...props }: ICardProps) => {
+  return (
+    <Text
+      as="h5"
+      className={cn("p-1 font-semibold", className)}
+      {...props}
+    >{`[ ${children} ]`}</Text>
+  )
 }
 
 const CardDescription = ({ className, ...props }: ICardProps) => (

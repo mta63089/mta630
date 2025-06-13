@@ -6,8 +6,22 @@ export const siteConfig = {
   links: {},
   nav: [
     { name: "Home", href: "/" },
+    { name: "Portfolio", href: "/portfolio" },
     { name: "Posts", href: "/posts" },
     { name: "Gallery", href: "/gallery" },
+    { name: "Tools", href: "/tools" },
+  ],
+  toolNav: [
+    {
+      name: "QR Code Generator",
+      description: "Convert your text or link into a QR code!",
+      href: "/tools/qr-code-gen",
+    },
+    {
+      name: "Random Facts",
+      description: "Get a random (and weird) fact!",
+      href: "/tools/random-fact",
+    },
   ],
 }
 

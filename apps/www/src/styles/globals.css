@@ -6,9 +6,10 @@
 
 :root {
   --background: oklch(1 0 0);
-  --foreground: oklch(0 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0 0 0);
+  --foreground: oklch(12.047% 0.00728 18.109);
+  --card: oklch(100% 0.00011 271.152);
+  --card-header: oklch(0.6238 0.185 257.78);
+  --card-foreground: oklch(14.965% 0.01258 18.589);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0 0 0);
   --primary: oklch(0.6489 0.237 26.9728);
@@ -104,6 +105,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
+  --color-card-header: var(--card-header);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
@@ -160,5 +162,8 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  h1 {
+    @apply font-display pb-2 text-center text-4xl font-extrabold tracking-wider;
   }
 }
