@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { Menu } from "lucide-react"
@@ -13,17 +12,6 @@ import { MenuVertical } from "./menu-vertical"
 import { Menu as DropdownMenu } from "./ui/menu"
 
 export function SiteHeader() {
-  const bgColor = [
-    "bg-chart-1 text-background hover:text-foreground",
-    "bg-chart-2",
-    "bg-chart-3 text-background hover:text-foreground",
-    "bg-chart-4",
-    "bg-chart-5",
-    "bg-chart-1",
-    "bg-chart-2",
-    "bg-chart-3",
-  ]
-
   return (
     <motion.header
       className={cn(
@@ -34,13 +22,6 @@ export function SiteHeader() {
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
-              <Image
-                src={"/logo.png"}
-                alt="mta630 logo"
-                className="size-8 rounded-full shadow"
-                width={100}
-                height={100}
-              />
               <Link href="/" className="mr-6 flex items-center space-x-2">
                 <span className="ml-1 text-3xl font-black tracking-tight">
                   {`[mta630]`}
@@ -50,11 +31,15 @@ export function SiteHeader() {
           </div>
           {/* HEADER FOR COMPUTER */}
           <nav className="hidden md:block">
-            <ul className="flex items-center gap-4">
-              {siteConfig.nav.map((item, i) => (
+            <ul className="flex items-center gap-2">
+              {siteConfig.nav.map((item) => (
                 <li key={item.name}>
                   <Link href={item.href}>
-                    <Button className={cn(bgColor[i])} variant="secondary">
+                    <Button
+                      size="sm"
+                      className="bg-chart-3 text-background text-xs"
+                      variant="outline"
+                    >
                       {item.name}
                     </Button>
                   </Link>
@@ -67,7 +52,7 @@ export function SiteHeader() {
             <DropdownMenu>
               <DropdownMenu.Trigger asChild>
                 <Button variant="secondary" size="icon">
-                  <Menu className="size-5" />
+                  <Menu className="size-3" />
                 </Button>
               </DropdownMenu.Trigger>
               <DropdownMenu.Content className="w-[300px]">

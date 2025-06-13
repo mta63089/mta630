@@ -74,7 +74,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       <head />
       <body
         className={cn(
-          "bg-background min-h-svh font-sans antialiased",
+          "bg-background min-h-svh font-sans antialiased md:subpixel-antialiased",
           fontSans.variable,
           fontMono.variable,
           fontDisplay.variable,

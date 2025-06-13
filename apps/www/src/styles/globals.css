@@ -51,6 +51,7 @@
   --shadow-xl:
     4px 4px 0px 0px hsl(0 0% 0% / 1), 4px 8px 10px -1px hsl(0 0% 0% / 1);
   --shadow-2xl: 4px 4px 0px 0px hsl(0 0% 0% / 2.5);
+  --inset-shadow-md: inset 0 2px 3px rgba(0, 0, 0, 0.25);
 }
 
 .dark {
@@ -60,24 +61,24 @@
   --card-foreground: oklch(1 0 0);
   --popover: oklch(0.3211 0 0);
   --popover-foreground: oklch(1 0 0);
-  --primary: oklch(0.7044 0.1872 23.1858);
+  --primary: oklch(0.8035 0.2171 144.84);
   --primary-foreground: oklch(0 0 0);
-  --secondary: oklch(0.9691 0.2005 109.6228);
+  --secondary: oklch(0.8926 0.2357 97.61);
   --secondary-foreground: oklch(0 0 0);
-  --muted: oklch(0.3211 0 0);
+  --muted: oklch(54.863% 0.00006 271.152);
   --muted-foreground: oklch(0.8452 0 0);
-  --accent: oklch(0.6755 0.1765 252.2592);
+  --accent: oklch(0.9587 0.0058 248.94);
   --accent-foreground: oklch(0 0 0);
-  --destructive: oklch(1 0 0);
+  --destructive: oklch(0.6925 0.2673 26.19);
   --destructive-foreground: oklch(0 0 0);
-  --border: oklch(1 0 0);
-  --input: oklch(1 0 0);
+  --border: oklch(100% 0.00011 271.152);
+  --input: oklch(100% 0.00011 271.152);
   --ring: oklch(0.7044 0.1872 23.1858);
-  --chart-1: oklch(0.7044 0.1872 23.1858);
-  --chart-2: oklch(0.9691 0.2005 109.6228);
-  --chart-3: oklch(0.6755 0.1765 252.2592);
+  --chart-1: oklch(0.6925 0.2673 26.19);
+  --chart-2: oklch(0.8926 0.2357 97.61);
+  --chart-3: oklch(0.7885 0.2305 296.61);
   --chart-4: oklch(0.7395 0.2268 142.8504);
-  --chart-5: oklch(0.6131 0.2458 328.0714);
+  --chart-5: oklch(72.526% 0.19807 327.358);
   --sidebar: oklch(0 0 0);
   --sidebar-foreground: oklch(1 0 0);
   --sidebar-primary: oklch(0.7044 0.1872 23.1858);
@@ -99,6 +100,7 @@
   --shadow-xl:
     4px 4px 0px 0px hsl(0 0% 0% / 1), 4px 8px 10px -1px hsl(0 0% 0% / 1);
   --shadow-2xl: 4px 4px 0px 0px hsl(0 0% 0% / 2.5);
+  --inset-shadow-md: inset 0 2px 3px rgba(0, 0, 0, 0.25);
 }
 
 @theme inline {
@@ -154,6 +156,7 @@
   --shadow-lg: var(--shadow-lg);
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
+  --inset-shadow-md: var(--inset-shadow-md);
 }
 
 @layer base {

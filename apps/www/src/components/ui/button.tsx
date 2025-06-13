@@ -23,6 +23,7 @@ export const buttonVariants = cva(
         //   "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
+        flat: "shadow:none border-2 hover:bg-green-200 active:inset-shadow-md inset-shadow-black transition-all",
       },
       size: {
         sm: "px-3 py-1 text-sm shadow hover:shadow-none",
