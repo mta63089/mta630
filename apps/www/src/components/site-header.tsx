@@ -15,7 +15,7 @@ export function SiteHeader() {
   return (
     <motion.header
       className={cn(
-        "bg-secondary sticky top-5 right-0 left-0 z-50 flex w-full border px-2 shadow-2xl transition-all duration-300"
+        "bg-secondary top-5 right-0 left-0 z-50 flex w-full border-2 px-2 shadow-2xl transition-all duration-300"
       )}
     >
       <div className="container">
@@ -32,16 +32,27 @@ export function SiteHeader() {
           {/* HEADER FOR COMPUTER */}
           <nav className="hidden md:block">
             <ul className="flex items-center gap-2">
-              {siteConfig.nav.map((item) => (
+              {siteConfig.nav.map((item, i) => (
                 <li key={item.name}>
                   <Link href={item.href}>
-                    <Button
-                      size="sm"
-                      className="bg-chart-3 text-background text-xs"
-                      variant="outline"
-                    >
-                      {item.name}
-                    </Button>
+                    {i % 2 == 0 && (
+                      <Button
+                        size="sm"
+                        className="bg-primary text-background text-xs"
+                        variant="outline"
+                      >
+                        {item.name}
+                      </Button>
+                    )}
+                    {i % 2 != 0 && (
+                      <Button
+                        size="sm"
+                        className="bg-chart-3 text-background hover:bg-primary text-xs"
+                        variant="outline"
+                      >
+                        {item.name}
+                      </Button>
+                    )}
                   </Link>
                 </li>
               ))}
@@ -51,7 +62,7 @@ export function SiteHeader() {
           <div className="block md:hidden">
             <DropdownMenu>
               <DropdownMenu.Trigger asChild>
-                <Button variant="secondary" size="icon">
+                <Button variant="flat" className="bg-green-500" size="icon">
                   <Menu className="size-3" />
                 </Button>
               </DropdownMenu.Trigger>

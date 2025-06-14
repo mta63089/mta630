@@ -1,9 +1,4 @@
-import {
-  Archivo_Black,
-  Geist_Mono,
-  Honk,
-  Space_Grotesk,
-} from "next/font/google"
+import { Archivo_Black, Geist_Mono, Space_Grotesk } from "next/font/google"
 
 // sans fonts from google to choose from (variable)
 // Quicksand  Manrope Fustat  Outfit  Karla Jost  Comfortaa Lexend Urbanist
@@ -19,7 +14,7 @@ export const fontSans = Space_Grotesk({
 //   subsets: ["latin"],
 // })
 
-export const fontHead = Honk({
+export const fontHead = Archivo_Black({
   weight: "400",
   variable: "--font-head",
   subsets: ["latin"],

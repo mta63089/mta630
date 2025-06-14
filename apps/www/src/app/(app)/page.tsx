@@ -17,6 +17,9 @@ export default function HomePage() {
         </PageDescription>
       </PageHeader>
       <PageContent>
+        <div className="my-2 w-full border-2 bg-gray-50 p-2">
+          Currently working on...
+        </div>
         <AnonymousChatRoom />
       </PageContent>
     </PageLayout>

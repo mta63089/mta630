@@ -31,7 +31,7 @@ function Tool({ name, description, index }: ToolProps) {
 
 export function ToolList() {
   return (
-    <section className="px-4 py-16 md:px-6 lg:px-8">
+    <section className="px-4 md:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-5">
           {siteConfig.toolNav.map((tool, index) => (

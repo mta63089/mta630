@@ -3,7 +3,13 @@ import { allPosts, Post } from "contentlayer/generated"
 import { compareDesc, format, parseISO } from "date-fns"
 
 import { Button } from "@/components/ui/button"
-import { Text } from "@/components/ui/text"
+import {
+  PageContent,
+  PageDescription,
+  PageHeader,
+  PageLayout,
+  PageTitle,
+} from "@/components/page-layout"
 
 function PostCard(post: Post) {
   return (
@@ -22,18 +28,24 @@ function PostCard(post: Post) {
   )
 }
 
-export default function Home() {
+export default function BlogOverviewPage() {
   const posts = allPosts.sort((a, b) =>
     compareDesc(new Date(a.date), new Date(b.date))
   )
 
   return (
-    <div className="prose mx-auto flex w-full flex-col py-2">
-      <Text as="h2">{"[Blog]"}</Text>
-
-      {posts.map((post, idx) => (
-        <PostCard key={idx} {...post} />
-      ))}
-    </div>
+    <PageLayout>
+      <PageHeader>
+        <PageTitle>BLOG</PageTitle>
+        <PageDescription>
+          Guides, insights, and explorations on whatever
+        </PageDescription>
+      </PageHeader>
+      <PageContent className="bg-gray-100">
+        {posts.map((post, i) => (
+          <PostCard key={i} {...post} />
+        ))}
+      </PageContent>
+    </PageLayout>
   )
 }
