@@ -11,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...allPosts.map((post) => ({
       url: `https://www.mta630.com${post.url}`,
-      lastModified: doc.lastUpdated,
+      lastModified: post.date,
     })),
   ]
 }

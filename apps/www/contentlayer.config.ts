@@ -16,7 +16,7 @@ const Author = defineNestedType(() => ({
 
 const Post = defineDocumentType(() => ({
   name: "Post",
-  filePathPattern: `posts/**/*.mdx`,
+  filePathPattern: `**/*.mdx`,
   contentType: "mdx",
   fields: {
     title: {
@@ -32,6 +32,11 @@ const Post = defineDocumentType(() => ({
     imageSrc: {
       type: "string",
       description: "The source of the image for the post",
+      required: true,
+    },
+    description: {
+      type: "string",
+      description: "The description that will display as a preview of the post",
       required: true,
     },
     author: { type: "nested", required: true, of: Author },
