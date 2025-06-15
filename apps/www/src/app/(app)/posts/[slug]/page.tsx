@@ -18,7 +18,18 @@ export async function generateMetadata({
   const { slug } = await params
 
   const post = allPosts.find((post) => post._raw.flattenedPath === slug)
-  return { title: post?.title ?? "Post not found" }
+
+  if (!post) {
+    return {
+      title: `Post Not Found | mta630 blog`,
+    }
+  }
+
+  return {
+    title: `${post.title}`,
+    description: post.description,
+    openGraph: { images: post.imageSrc, title: `${post.title} | mta630 blog` },
+  }
 }
 
 export default async function PostPage({ params }: { params: Params }) {

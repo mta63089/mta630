@@ -1,15 +1,24 @@
-import { defineDocumentType, makeSource } from "contentlayer2/source-files"
+import {
+  defineDocumentType,
+  defineNestedType,
+  makeSource,
+} from "contentlayer2/source-files"
+
+const Author = defineNestedType(() => ({
+  name: "Author",
+  fields: {
+    name: { type: "string", required: true },
+    avatar: { type: "string", required: true },
+    x: { type: "string", required: false },
+    linkedin: { type: "string", required: false },
+  },
+}))
 
 const Post = defineDocumentType(() => ({
   name: "Post",
-  filePathPattern: `**/*.mdx`,
+  filePathPattern: `posts/**/*.mdx`,
   contentType: "mdx",
   fields: {
-    author: {
-      type: "string",
-      description: "the author for the post",
-      required: true,
-    },
     title: {
       type: "string",
       description: "The title of the post",
@@ -25,11 +34,14 @@ const Post = defineDocumentType(() => ({
       description: "The source of the image for the post",
       required: true,
     },
+    author: { type: "nested", required: true, of: Author },
+    tags: { type: "list", required: true, of: { type: "string" } },
+    status: { type: "enum", options: ["draft", "published"], default: "draft" },
   },
   computedFields: {
     url: {
       type: "string",
-      resolve: (doc) => `/posts/${doc._raw.flattenedPath}`,
+      resolve: (post) => `/posts/${post._raw.flattenedPath}`,
     },
   },
 }))
