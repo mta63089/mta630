@@ -41,7 +41,7 @@ export default function BlogOverviewPage() {
           Guides, insights, and explorations on whatever
         </PageDescription>
       </PageHeader>
-      <PageContent className="bg-gray-100">
+      <PageContent className="">
         {posts.map((post, i) => (
           <PostCard key={i} {...post} />
         ))}

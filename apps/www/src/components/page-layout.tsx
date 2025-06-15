@@ -47,7 +47,10 @@ function PageTitle({
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className={cn("text-6xl font-black tracking-tighter", className)}
+      className={cn(
+        "bg-primary mx-auto px-2 text-6xl font-black tracking-tighter",
+        className
+      )}
       {...props}
     />
   )
@@ -81,7 +84,7 @@ function PageContent({
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 1, delay: 1 }}
       className={cn(
-        "my-4 flex min-h-svh flex-col border-2 bg-gray-200 p-8 shadow-2xl",
+        "bg-chart-3 my-4 flex min-h-svh flex-col border-2 p-8 shadow-2xl",
         className
       )}
       {...props}

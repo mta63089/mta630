@@ -92,8 +92,8 @@ export function Portfolio() {
                 <Button>Contact Me</Button>
               </div>
             </div>
-            <div className="relative h-[400px] w-2/3 border-4 border-black shadow-[8px_8px_0_0_#000] dark:border-white dark:shadow-[8px_8px_0_0_#fff]">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-500" />
+            <div className="relative flex h-[200px] w-full items-center justify-center self-center md:ml-16">
+              <div className="h-[200px] w-1/2 border-4 bg-gradient-to-br from-blue-200 to-purple-600 shadow-xl" />
             </div>
           </div>
         </div>

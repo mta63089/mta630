@@ -11,7 +11,7 @@ export default function HomePage() {
   return (
     <PageLayout>
       <PageHeader>
-        <PageTitle>Home</PageTitle>
+        <PageTitle>HOME</PageTitle>
         <PageDescription>
           Welcome to mta630.com the home of my busy mind
         </PageDescription>

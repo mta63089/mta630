@@ -15,7 +15,7 @@ export default function ToolsLayout({ children }: ToolsLayoutProps) {
     <>
       <PageLayout>
         <PageHeader>
-          <PageTitle>Tools</PageTitle>
+          <PageTitle>TOOLS</PageTitle>
           <PageDescription>
             A collection of free tools created by me mta630.
           </PageDescription>

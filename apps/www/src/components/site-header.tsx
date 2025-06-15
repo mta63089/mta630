@@ -32,27 +32,16 @@ export function SiteHeader() {
           {/* HEADER FOR COMPUTER */}
           <nav className="hidden md:block">
             <ul className="flex items-center gap-2">
-              {siteConfig.nav.map((item, i) => (
+              {siteConfig.nav.map((item) => (
                 <li key={item.name}>
                   <Link href={item.href}>
-                    {i % 2 == 0 && (
-                      <Button
-                        size="sm"
-                        className="bg-primary text-background text-xs"
-                        variant="outline"
-                      >
-                        {item.name}
-                      </Button>
-                    )}
-                    {i % 2 != 0 && (
-                      <Button
-                        size="sm"
-                        className="bg-chart-3 text-background hover:bg-primary text-xs"
-                        variant="outline"
-                      >
-                        {item.name}
-                      </Button>
-                    )}
+                    <Button
+                      size="sm"
+                      className="bg-primary text-xs"
+                      variant="outline"
+                    >
+                      {item.name}
+                    </Button>
                   </Link>
                 </li>
               ))}
@@ -62,7 +51,7 @@ export function SiteHeader() {
           <div className="block md:hidden">
             <DropdownMenu>
               <DropdownMenu.Trigger asChild>
-                <Button variant="flat" className="bg-green-500" size="icon">
+                <Button variant="flat" size="icon">
                   <Menu className="size-3" />
                 </Button>
               </DropdownMenu.Trigger>

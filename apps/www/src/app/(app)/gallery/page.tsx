@@ -35,7 +35,7 @@ export default function GalleryPage() {
   return (
     <PageLayout>
       <PageHeader>
-        <PageTitle>Gallery</PageTitle>
+        <PageTitle>GALLERY</PageTitle>
         <PageDescription>
           A public gallery page where you can upload and download image! Built
           from the ground up using Google Cloud and a custom API

@@ -15,7 +15,7 @@ import { Textarea } from "./ui/textarea"
 export function AnonymousChatRoom() {
   return (
     <div className="flex h-[400px] w-full flex-col overflow-y-auto border-4 border-black bg-white">
-      <div className="bg-secondary border-b-4 p-4">
+      <div className="bg-chart-2 border-b-4 p-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <h3 className="text-2xl font-medium">Chat Room</h3>
@@ -57,7 +57,7 @@ export function AnonymousChatRoom() {
                 <ImageIcon className="size-5" />
               </Button>
             </div>
-            <Button size="icon" variant="flat" className="bg-green-500">
+            <Button size="icon" variant="flat" className="bg-primary">
               <Send className="size-5" />
             </Button>
           </div>

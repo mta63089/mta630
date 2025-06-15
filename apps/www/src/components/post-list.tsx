@@ -2,14 +2,9 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import { Post } from "contentlayer/generated"
 import { ArrowRight } from "lucide-react"
 
-interface Post {
-  id: string
-  title: string
-  preview: string
-  imageUrl?: string
-}
 interface PostListProps {
   posts: Post[]
 }
@@ -48,12 +43,12 @@ export function PostList({ posts }: PostListProps) {
           </div>
           <div className="space-y-8 lg:col-span-1 lg:border-r lg:border-l lg:px-8">
             {leftCol.map((post) => (
-              <SmallArticle key={post.id} post={post} />
+              <SmallArticle key={post.url} post={post} />
             ))}
           </div>
           <div className="space-y-8 lg:col-span-1">
             {rightCol.map((post) => (
-              <SmallArticle key={post.id} post={post} />
+              <SmallArticle key={post._id} post={post} />
             ))}
           </div>
         </div>
@@ -65,21 +60,21 @@ export function PostList({ posts }: PostListProps) {
 function FeaturedArticle({ post }: { post: Post }) {
   return (
     <article>
-      <Link href={`/posts/${post.id}`}>
+      <Link href={`/posts/${post.url}`}>
         <Image
           className="mb-5 rounded-lg"
-          src={post.imageUrl || "/placeholder.png"}
+          src={post.imageSrc || "/placeholder.png"}
           alt={post.title}
           width={800}
           height={400}
         />
       </Link>
       <h2 className="text-foreground my-2 text-2xl font-bold tracking-tight">
-        <Link href={`/posts/${post.id}`}>{post.title}</Link>
+        <Link href={`/posts/${post.url}`}>{post.title}</Link>
       </h2>
-      <p className="text-muted-foreground mb-4">{post.preview}</p>
+      <p className="text-muted-foreground mb-4">{post.title}</p>
       <Link
-        href={`/posts/${post.id}`}
+        href={`/posts/${post.url}`}
         className="text-primary inline-flex items-center font-medium hover:underline"
       >
         Read more
@@ -93,11 +88,11 @@ function SmallArticle({ post }: { post: Post }) {
   return (
     <article>
       <h2 className="text-foreground mb-2 text-2xl font-bold tracking-tight">
-        <Link href={`/posts/${post.id}`}>{post.title}</Link>
+        <Link href={`/posts/${post.url}`}>{post.title}</Link>
       </h2>
-      <p className="text-muted-foreground mb-4">{post.preview}</p>
+      <p className="text-muted-foreground mb-4">{post.title}</p>
       <Link
-        href={`/posts/${post.id}`}
+        href={`/posts/${post.url}`}
         className="text-primary inline-flex items-center font-medium hover:underline"
       >
         Read more
