@@ -32,7 +32,7 @@ function PageHeader({
       initial={{ x: -100, opacity: 0 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 1 }}
-      className={cn("flex flex-col p-2 text-center", className)}
+      className={cn("flex flex-col p-4 text-center md:p-8", className)}
       {...props}
     />
   )
@@ -48,7 +48,7 @@ function PageTitle({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       className={cn(
-        "bg-primary mx-auto px-2 text-6xl font-black tracking-tighter",
+        "bg-chart-3 mx-auto px-2 text-6xl font-black tracking-tighter",
         className
       )}
       {...props}

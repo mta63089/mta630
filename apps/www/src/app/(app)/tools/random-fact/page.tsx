@@ -3,7 +3,13 @@
 import { useState } from "react"
 
 import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 
 export default function GalleryPage() {
   const [fact, setFact] = useState<string>("")
@@ -25,13 +31,13 @@ export default function GalleryPage() {
     <div>
       <h1>Random Facts</h1>
       <Card className="bg-accent">
-        <Card.Header>
-          <Card.Title>Click the button to get a fact!</Card.Title>
-        </Card.Header>
-        <Card.Content>
-          <Card.Description>{fact}</Card.Description>
+        <CardHeader>
+          <CardTitle>Click the button to get a fact!</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <CardDescription>{fact}</CardDescription>
           <Button onClick={() => fetchFact()}>Gimme a Fact!</Button>
-        </Card.Content>
+        </CardContent>
       </Card>
     </div>
   )

@@ -23,7 +23,7 @@ export function SiteHeader() {
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
               <Link href="/" className="mr-6 flex items-center space-x-2">
-                <span className="ml-1 text-3xl font-black tracking-tight">
+                <span className="bg-chart-4 ml-1 p-1 text-3xl font-black tracking-tight">
                   {`[mta630]`}
                 </span>
               </Link>

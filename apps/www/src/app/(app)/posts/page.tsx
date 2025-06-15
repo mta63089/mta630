@@ -1,32 +1,13 @@
-import Link from "next/link"
-import { allPosts, Post } from "contentlayer/generated"
-import { compareDesc, format, parseISO } from "date-fns"
+import { allPosts } from "contentlayer/generated"
+import { compareDesc } from "date-fns"
 
-import { Button } from "@/components/ui/button"
 import {
-  PageContent,
   PageDescription,
   PageHeader,
   PageLayout,
   PageTitle,
 } from "@/components/page-layout"
-
-function PostCard(post: Post) {
-  return (
-    <div className="mb-8">
-      <h2 className="text-xl">
-        <Link href={post.url}>
-          <Button variant="link" className="p-0">
-            {post.title}
-          </Button>
-        </Link>
-      </h2>
-      <time dateTime={post.date} className="mb-2 block text-xs text-gray-600">
-        {format(parseISO(post.date), "LLLL d, yyyy")}
-      </time>
-    </div>
-  )
-}
+import { SinglePost } from "@/components/single-post"
 
 export default function BlogOverviewPage() {
   const posts = allPosts.sort((a, b) =>
@@ -41,11 +22,13 @@ export default function BlogOverviewPage() {
           Guides, insights, and explorations on whatever
         </PageDescription>
       </PageHeader>
-      <PageContent className="">
-        {posts.map((post, i) => (
-          <PostCard key={i} {...post} />
-        ))}
-      </PageContent>
+      <div>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {posts.map((post) => (
+            <SinglePost key={post._id} {...post} />
+          ))}
+        </div>
+      </div>
     </PageLayout>
   )
 }

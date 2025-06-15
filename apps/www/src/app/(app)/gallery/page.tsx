@@ -4,7 +4,7 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
 
-import { Card } from "@/components/ui/card"
+import { Card, CardDescription } from "@/components/ui/card"
 import ImageUpload from "@/components/image-upload/image-upload"
 import {
   PageContent,
@@ -46,7 +46,7 @@ export default function GalleryPage() {
           <ImageUpload />
           {images.map((img) => (
             <Card key={img.name}>
-              <Card.Description className="break-inside-avoid self-center overflow-hidden p-0">
+              <CardDescription className="break-inside-avoid self-center overflow-hidden p-0">
                 <Image
                   src={img.url}
                   alt={img.name}
@@ -55,7 +55,7 @@ export default function GalleryPage() {
                   height={0}
                   sizes="100vw"
                 />
-              </Card.Description>
+              </CardDescription>
             </Card>
           ))}
         </div>
