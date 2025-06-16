@@ -1,135 +1,151 @@
-"use client"
-
-import React, { useCallback, useState } from "react"
+import { useCallback, useState } from "react"
 import Image from "next/image"
-import { CloudUpload } from "lucide-react"
-import { useDropzone } from "react-dropzone"
+import { UploadCloud } from "lucide-react"
 
+import { Button } from "@/components/ui/button"
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
-interface ImageUploadProps {
-  onUploadComplete?: (url: string) => void
-}
+const TAG_OPTIONS = ["Nature", "Urban", "People", "Abstract"]
 
-const ImageUpload: React.FC<ImageUploadProps> = ({ onUploadComplete }) => {
-  const [loading, setLoading] = useState<boolean>(false)
+const ImageUpload = () => {
   const [selectedImage, setSelectedImage] = useState<File | null>(null)
   const [uploadedImagePath, setUploadedImagePath] = useState<string | null>(
     null
   )
+  const [name, setName] = useState("")
+  const [tags, setTags] = useState<string[]>([])
+  const [description, setDescription] = useState("")
 
-  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files?.length) {
-      const image = event.target.files[0]
-      setSelectedImage(image)
-      handleImageUpload(image)
-    }
-  }
+  const convertToWebP = (file: File): Promise<File> => {
+    return new Promise((resolve) => {
+      const img = document.createElement("img")
+      const reader = new FileReader()
 
-  const removeSelectedImage = () => {
-    setLoading(false)
-    setUploadedImagePath(null)
-    if (selectedImage) setSelectedImage(null)
-  }
-
-  const handleImageUpload = useCallback(
-    async (image: File) => {
-      if (!image) return
-      setLoading(true)
-      const form = new FormData()
-      form.append("file", image)
-
-      const res = await fetch("/api/image/upload", {
-        method: "POST",
-        body: form,
-      })
-
-      const { url } = await res.json()
-      setUploadedImagePath(url)
-      setLoading(false)
-      onUploadComplete?.(url)
-    },
-    [onUploadComplete]
-  )
-
-  const onDrop = useCallback(
-    async (acceptedFiles: File[]) => {
-      if (acceptedFiles.length > 0) {
-        const image = acceptedFiles[0]
-        setSelectedImage(image)
-        handleImageUpload(image)
+      reader.onload = (e) => {
+        if (!e.target?.result) return
+        img.src = e.target.result as string
       }
-    },
-    [handleImageUpload]
-  )
 
-  const { getRootProps, getInputProps } = useDropzone({ onDrop, noClick: true })
+      img.onload = () => {
+        const canvas = document.createElement("canvas")
+        canvas.width = img.width
+        canvas.height = img.height
+        const ctx = canvas.getContext("2d")
+        ctx?.drawImage(img, 0, 0)
+
+        canvas.toBlob((blob) => {
+          if (blob) {
+            const webpFile = new File(
+              [blob],
+              file.name.replace(/\.\w+$/, ".webp"),
+              { type: "image/webp" }
+            )
+            resolve(webpFile)
+          }
+        }, "image/webp")
+      }
+
+      reader.readAsDataURL(file)
+    })
+  }
+
+  const handleUpload = useCallback(async () => {
+    if (!selectedImage) return
+    const webp = await convertToWebP(selectedImage)
+
+    const form = new FormData()
+    form.append("file", webp)
+    form.append("name", name)
+    form.append("tags", JSON.stringify(tags))
+    form.append("description", description)
+
+    const res = await fetch("/api/image/upload", { method: "POST", body: form })
+    const { url } = await res.json()
+    setUploadedImagePath(url)
+  }, [selectedImage, name, tags, description])
 
   return (
-    <div className="h-full space-y-3">
-      <div {...getRootProps()} className="h-full">
-        <label
-          htmlFor="dropzone-file"
-          className="visually-hidden-focusable relative flex h-full w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed bg-gray-50 p-6 transition-all duration-400 hover:bg-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-gray-500 dark:hover:bg-gray-800"
-        >
-          {loading && (
-            <div className="max-w-md text-center">
-              <p className="text-sm font-semibold">Uploading Picture</p>
-              <p className="text-xs text-gray-600">
-                Do not refresh or perform any other action while the picture is
-                being uploaded
-              </p>
-            </div>
-          )}
+    <Dialog open={selectedImage !== null}>
+      <form>
+        <DialogTrigger asChild>
+          <Button>
+            <UploadCloud size={5} /> Upload an Image
+          </Button>
+        </DialogTrigger>
+        <DialogContent className="sm:max-w-[800px]">
+          <DialogHeader>
+            <DialogTitle>Upload an Image</DialogTitle>
+            <DialogDescription>
+              Upload and categorize your image!
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4">
+            <Input
+              type="file"
+              accept="image/*"
+              onChange={(e) =>
+                e.target.files?.[0] && setSelectedImage(e.target.files[0])
+              }
+            />
+            <Input
+              placeholder="Image Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <Input
+              placeholder="Optional Description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
 
-          {!loading && !uploadedImagePath && (
-            <div className="text-center">
-              <div className="bg-accent mx-auto max-w-min rounded-md border-2 p-2">
-                <CloudUpload size="1.6em" />
-              </div>
+            <Select onValueChange={(value) => setTags([value])}>
+              <SelectTrigger>
+                <SelectValue placeholder="Select Tag" />
+              </SelectTrigger>
+              <SelectContent>
+                {TAG_OPTIONS.map((tag) => (
+                  <SelectItem key={tag} value={tag}>
+                    {tag}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
 
-              <p className="mt-2 text-sm text-gray-700 dark:text-gray-400">
-                <span className="font-semibold">Drag an image</span>
-              </p>
-              <p className="text-xs text-gray-600 dark:text-gray-400">
-                Select a image or drag here to upload directly
-              </p>
-            </div>
-          )}
-
-          {uploadedImagePath && !loading && (
-            <div
-              onClick={removeSelectedImage}
-              className="space-y-2 text-center"
-            >
+            {uploadedImagePath && (
               <Image
-                width={1000}
-                height={1000}
                 src={uploadedImagePath}
-                className="max-h-16 w-full object-contain opacity-70"
-                alt="uploaded image"
+                alt="uploaded"
+                width={200}
+                height={200}
+                className="mt-4 rounded"
               />
-              <div className="space-y-1">
-                <p className="text-sm font-semibold">Image Uploaded</p>
-                <p className="text-xs text-gray-400">
-                  Click here to upload another image
-                </p>
-              </div>
-            </div>
-          )}
-        </label>
-
-        <Input
-          {...getInputProps()}
-          id="dropzone-file"
-          accept="image/png, image/jpeg"
-          type="file"
-          className="hidden"
-          disabled={loading || uploadedImagePath !== null}
-          onChange={handleImageChange}
-        />
-      </div>
-    </div>
+            )}
+          </div>
+          <DialogClose asChild>
+            <Button variant="outline">Cancel</Button>
+          </DialogClose>
+          <Button onClick={handleUpload} type="submit">
+            Upload
+          </Button>
+        </DialogContent>
+      </form>
+    </Dialog>
   )
 }
 

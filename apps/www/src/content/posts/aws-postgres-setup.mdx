@@ -1,0 +1,143 @@
+---
+title: "How to Set Up a PostgreSQL Database on AWS RDS (Step-by-Step Guide)"
+imageSrc: https://cdn.pixabay.com/photo/2017/01/22/22/11/cloud-computing-2001090_1280.jpg
+description: A concise guide to deploying PostgreSQL using Amazon RDS, with all credentials and connection details ready for development.
+date: 06-16-2025
+tags:
+    - how-to
+    - aws
+    - postgresql
+author:
+  name: Michael Albert
+  avatar: https://www.mta630.com/mta630.png
+  linkedin: mta630
+  twitter: mta630
+status: published
+---
+
+
+## 🐘 Introduction
+
+Setting up PostgreSQL on AWS using RDS (Relational Database Service) is the most efficient way to manage a production-grade, scalable, and secure database with minimal effort.
+
+By the end of this guide, you’ll have:
+
+- A running PostgreSQL instance
+- `DATABASE_URL` ready to plug into your app
+- All credentials (`POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_DB`)
+
+---
+
+## ✅ Prerequisites
+
+- AWS account with access to RDS
+- Basic knowledge of AWS Console
+- VPC access (use default if unsure)
+
+---
+
+## 1. Go to RDS Dashboard
+
+- Open the [Amazon RDS Console](https://console.aws.amazon.com/rds/)
+- Click **"Create Database"**
+
+---
+
+## 2. Select Engine
+
+- Choose **Standard Create**
+- Select **PostgreSQL**
+- Pick the latest version available
+
+---
+
+## 3. Configure DB Details
+
+- **DB Instance Identifier**: `my-postgres-db`
+- **Master Username**: `postgres` *(or your preferred username)*
+- **Master Password**: Use a strong password like `P0stgr3s!Secure123`
+
+:::info
+Save the username and password — you'll need them to connect.
+:::
+
+---
+
+## 4. Instance Settings
+
+- **DB Instance Class**: For dev use, select `db.t3.micro` (Free Tier eligible)
+- **Storage**: 20 GB (or adjust based on need)
+
+---
+
+## 5. Connectivity
+
+- **VPC**: Choose default or your custom VPC
+- **Public Access**: ✅ **Yes** (enable for dev/test access from outside AWS)
+- **VPC Security Group**: Add a new or existing one that allows PostgreSQL (port 5432) inbound from your IP
+
+---
+
+## 6. Additional Configuration
+
+- **Initial DB Name**: `myappdb` *(this will be your `POSTGRES_DB`)*
+- Leave other defaults unless you have specific needs
+
+---
+
+## 7. Create Database
+
+- Click **Create Database**
+- Wait 5–10 minutes for RDS to finish provisioning
+
+---
+
+## 8. Get Connection Info
+
+Once your DB is available:
+
+- Go to **Databases > my-postgres-db**
+- Copy the **Endpoint** (e.g., `my-postgres-db.xxxxxxx.us-east-1.rds.amazonaws.com`)
+- Port is **5432**
+
+---
+
+## 9. Construct `DATABASE_URL`
+
+Here’s how to build your connection string manually:
+
+```env
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=P0stgr3s!Secure123
+POSTGRES_DB=myappdb
+POSTGRES_HOST=my-postgres-db.xxxxxxx.us-east-1.rds.amazonaws.com
+POSTGRES_PORT=5432
+DATABASE_URL=postgresql://postgres:P0stgr3s!Secure123@my-postgres-db.xxxxxxx.us-east-1.rds.amazonaws.com:5432/myappdb
+````
+
+Copy that `DATABASE_URL` and drop it in your `.env` file for local dev or deployment.
+
+---
+
+## 🧪 Test Your Connection
+
+Using `psql` or a GUI like TablePlus or pgAdmin:
+
+```bash
+psql postgresql://postgres:P0stgr3s!Secure123@my-postgres-db.xxxxxxx.us-east-1.rds.amazonaws.com:5432/myappdb
+```
+
+If you connect successfully — you're done.
+
+---
+
+## 🧵 Wrap-Up
+
+You now have a live PostgreSQL instance hosted on AWS RDS, with all connection credentials:
+
+* `DATABASE_URL`
+* `POSTGRES_USER`
+* `POSTGRES_PASSWORD`
+* `POSTGRES_DB`
+
+Use these to plug into tools like Supabase, Prisma, Drizzle, or your own backend logic.
