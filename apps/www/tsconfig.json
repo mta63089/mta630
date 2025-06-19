@@ -1,6 +1,7 @@
 {
   "extends": "@mta630/typescript-config/nextjs.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
       "contentlayer/generated": ["./.contentlayer/generated"],
       "@/*": ["./src/*"]

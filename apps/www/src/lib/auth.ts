@@ -1,30 +1,39 @@
+// lib/auth.ts
+import prisma from "@mta630/db"
 import { betterAuth } from "better-auth"
-import { drizzleAdapter } from "better-auth/adapters/drizzle"
+import { prismaAdapter } from "better-auth/adapters/prisma"
+import { nextCookies } from "better-auth/next-js"
+import { username } from "better-auth/plugins"
 
-import { db } from "@/lib/db"
+import { reactVerificationEmail } from "@/components/verification-email"
+
+import { resend } from "./resend"
+
+const from = process.env.RESEND_EMAIL || "empty"
 
 export const auth = betterAuth({
-  database: drizzleAdapter(db, {
-    provider: "pg",
+  database: prismaAdapter(prisma, {
+    provider: "postgresql",
   }),
   emailAndPassword: {
+    requireEmailVerification: true,
     enabled: true,
-    async sendResetPassword(data, request) {
-      // Send an email to the user with a link to reset their password
+    autoSignIn: false,
+    revokeSessionsOnPasswordReset: true,
+  },
+  emailVerification: {
+    sendOnSignUp: true,
+    sendVerificationEmail: async ({ user, url }) => {
+      await resend.emails.send({
+        to: user.email,
+        from,
+        subject:
+          "Verify your e-mail to complete account creation at mta630.com",
+        text: "Verify your e-mail!",
+        react: reactVerificationEmail({ username: user.name, url }),
+      })
     },
   },
-  socialProviders: {
-    google: {
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-    },
-    github: {
-      clientId: process.env.GITHUB_CLIENT_ID!,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET!,
-    },
-    discord: {
-      clientId: process.env.DISCORD_CLIENT_ID!,
-      clientSecret: process.env.DISCORD_CLIENT_SECRET!,
-    },
-  },
+  account: { accountLinking: { enabled: false } },
+  plugins: [nextCookies(), username()],
 })

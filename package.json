@@ -19,7 +19,11 @@
     "eslint-config-next": "15.3.1",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-react": "^7.37.5",
-    "prettier": "^3.5.3"
+    "prettier": "^3.5.3",
+    "next": "catalog:"
+  },
+  "devDependencies": {
+    "typescript": "catalog:"
   },
   "license": "MIT",
   "packageManager": "pnpm@10.10.0"

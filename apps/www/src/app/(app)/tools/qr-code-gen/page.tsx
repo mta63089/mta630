@@ -3,11 +3,20 @@
 
 import { useState } from "react"
 import Image from "next/image"
+import QRCode from "qrcode"
 
-import { generateQRCode } from "@/lib/qr"
 import { Button } from "@/components/ui/button"
 
 export default function QrCodeViewer() {
+  async function generateQRCode(text: string): Promise<string> {
+    try {
+      const dataUrl = await QRCode.toDataURL(text)
+      return dataUrl
+    } catch (err) {
+      throw new Error("Failed to generate QR code: " + err)
+    }
+  }
+
   const [text, setText] = useState("")
   const [qrCode, setQrCode] = useState<string | null>(null)
 
