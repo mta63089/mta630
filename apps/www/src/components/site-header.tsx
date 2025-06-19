@@ -13,14 +13,10 @@ import { Menu as DropdownMenu } from "./ui/menu"
 
 export function SiteHeader() {
   return (
-    <motion.header
-      className={cn(
-        "bg-secondary top-5 right-0 left-0 z-50 flex w-full border-2 px-2 shadow-2xl transition-all duration-300"
-      )}
-    >
+    <motion.header className={cn("bg-secondary flex w-full border-b-4")}>
       <div className="flex h-16 w-full items-center justify-between">
         <div className="flex items-center gap-2">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
+          <Link href="/">
             <span className="hover:bg-primary bg-chart-4 ml-1 p-1 text-3xl font-black tracking-tight transition-colors">
               {`[mta630]`}
             </span>
@@ -32,7 +28,7 @@ export function SiteHeader() {
             {siteConfig.nav.map((item) => (
               <li key={item.name}>
                 <Link href={item.href}>
-                  <Button size="lg" className="shadow-none" variant="link">
+                  <Button className="text-2xl shadow-none" variant="link">
                     {item.name}
                   </Button>
                 </Link>
@@ -41,24 +37,25 @@ export function SiteHeader() {
           </ul>
         </nav>
         {/* MOBILE NAV */}
-        <div className="block md:hidden">
-          <DropdownMenu>
-            <DropdownMenu.Trigger asChild>
-              <Button variant="flat" size="icon">
-                <Menu className="size-3" />
-              </Button>
-            </DropdownMenu.Trigger>
-            <DropdownMenu.Content className="w-[300px]">
-              <MenuVertical menuItems={siteConfig.nav} />
-            </DropdownMenu.Content>
-          </DropdownMenu>
-        </div>
-        <div className="flex">
+        <div className="flex gap-4">
           <Link href="/signup">
             <Button variant="flat" size="icon">
-              <User2Icon className="size-6" />
+              <User2Icon className="size-4" />
             </Button>
           </Link>
+
+          <div className="block md:hidden">
+            <DropdownMenu>
+              <DropdownMenu.Trigger asChild>
+                <Button variant="flat" size="icon">
+                  <Menu className="size-4" />
+                </Button>
+              </DropdownMenu.Trigger>
+              <DropdownMenu.Content className="w-[300px]">
+                <MenuVertical menuItems={siteConfig.nav} />
+              </DropdownMenu.Content>
+            </DropdownMenu>
+          </div>
         </div>
       </div>
     </motion.header>

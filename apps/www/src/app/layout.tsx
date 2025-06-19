@@ -8,8 +8,6 @@ import "@/styles/globals.css"
 
 import { Metadata } from "next/types"
 
-import RetroGrid from "@/components/retro-grid"
-
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
@@ -90,9 +88,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
           disableTransitionOnChange
           enableColorScheme
         >
-          <div className="bg-background relative mx-auto flex min-h-svh max-w-full min-w-full flex-col items-center md:max-w-4/5 md:min-w-4/5">
-            {children}
-          </div>
+          <div className="flex min-h-svh flex-1 flex-col">{children}</div>
         </ThemeProvider>
         <Toaster position="top-center" />
       </body>

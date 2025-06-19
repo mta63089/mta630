@@ -2,8 +2,6 @@
 @import "tw-animate-css";
 @import "./typography.css";
 
-@custom-variant dark (&: is(.dark *));
-
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(12.047% 0.00728 18.109);

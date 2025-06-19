@@ -2,6 +2,12 @@ import type { NextConfig } from "next"
 import { withContentlayer } from "next-contentlayer2"
 
 const config: NextConfig = {
+  turbopack: {
+    resolveAlias: {
+      underscore: "lodash",
+    },
+    resolveExtensions: [".mdx", ".tsx", ".ts", ".jsx", ".js", ".json"],
+  },
   images: {
     remotePatterns: [
       {
