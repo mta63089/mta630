@@ -246,6 +246,9 @@ importers:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.4.2
         version: 4.4.2(prettier@3.5.3)
+      '@mta630/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
       '@tailwindcss/postcss':
         specifier: 'catalog:'
         version: 4.1.8
