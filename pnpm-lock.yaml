@@ -301,6 +301,9 @@ importers:
         specifier: ^6.10.1
         version: 6.10.1(prisma@6.10.1(typescript@5.8.3))(typescript@5.8.3)
     devDependencies:
+      '@mta630/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
       '@types/node':
         specifier: 'catalog:'
         version: 20.19.0
@@ -316,6 +319,8 @@ importers:
       typescript:
         specifier: 'catalog:'
         version: 5.8.3
+
+  packages/typescript-config: {}
 
 packages:
 
