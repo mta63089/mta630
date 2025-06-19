@@ -1,5 +1,6 @@
+"use client"
+
 import { useCallback, useState } from "react"
-import Image from "next/image"
 import { UploadCloud } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -21,9 +22,11 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
+import { Label } from "../ui/label"
+
 const TAG_OPTIONS = ["Nature", "Urban", "People", "Abstract"]
 
-const ImageUpload = () => {
+function ImageUpload() {
   const [selectedImage, setSelectedImage] = useState<File | null>(null)
   const [uploadedImagePath, setUploadedImagePath] = useState<string | null>(
     null
@@ -81,39 +84,61 @@ const ImageUpload = () => {
   }, [selectedImage, name, tags, description])
 
   return (
-    <Dialog open={selectedImage !== null}>
-      <form>
-        <DialogTrigger asChild>
-          <Button>
-            <UploadCloud size={5} /> Upload an Image
-          </Button>
-        </DialogTrigger>
-        <DialogContent className="sm:max-w-[800px]">
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="outline">
+          <UploadCloud size={16} className="mr-2" /> Upload an Image
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault()
+            handleUpload()
+          }}
+          className="space-y-4"
+        >
           <DialogHeader>
             <DialogTitle>Upload an Image</DialogTitle>
             <DialogDescription>
               Upload and categorize your image!
             </DialogDescription>
           </DialogHeader>
-          <div className="space-y-4">
+
+          <div className="grid gap-3">
+            <Label htmlFor="image-1">Choose your image</Label>
             <Input
+              id="image-1"
               type="file"
               accept="image/*"
               onChange={(e) =>
                 e.target.files?.[0] && setSelectedImage(e.target.files[0])
               }
             />
+          </div>
+
+          <div className="grid gap-3">
+            <Label htmlFor="name-1">Name your image</Label>
             <Input
+              id="name-1"
               placeholder="Image Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
+          </div>
+
+          <div className="grid gap-3">
+            <Label htmlFor="description-1">Describe your image</Label>
             <Input
-              placeholder="Optional Description"
+              id="description-1"
+              placeholder="Optional"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
+          </div>
 
+          <div className="grid gap-3">
+            <Label>Select Tag</Label>
             <Select onValueChange={(value) => setTags([value])}>
               <SelectTrigger>
                 <SelectValue placeholder="Select Tag" />
@@ -126,25 +151,16 @@ const ImageUpload = () => {
                 ))}
               </SelectContent>
             </Select>
-
-            {uploadedImagePath && (
-              <Image
-                src={uploadedImagePath}
-                alt="uploaded"
-                width={200}
-                height={200}
-                className="mt-4 rounded"
-              />
-            )}
           </div>
-          <DialogClose asChild>
-            <Button variant="outline">Cancel</Button>
-          </DialogClose>
-          <Button onClick={handleUpload} type="submit">
-            Upload
-          </Button>
-        </DialogContent>
-      </form>
+
+          <div className="flex justify-end gap-2 pt-4">
+            <DialogClose asChild>
+              <Button variant="outline">Cancel</Button>
+            </DialogClose>
+            <Button type="submit">Upload</Button>
+          </div>
+        </form>
+      </DialogContent>
     </Dialog>
   )
 }

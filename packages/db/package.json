@@ -1,0 +1,32 @@
+{
+  "name": "@mta630/db",
+  "version": "0.0.0",
+  "exports": {
+    ".": {
+      "development": "./src/index.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "pnpm db:generate && tsup src/index.ts --format cjs,esm && tsc --emitDeclarationOnly --declaration",
+    "db:deploy": "prisma migrate deploy",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev --skip-generate",
+    "type-check": "tsc --noEmit"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "dependencies": {
+    "@prisma/client": "^6.10.1"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "fs-extra": "^11.3.0",
+    "prisma": "^6.10.1",
+    "tsup": "^8.5.0",
+    "typescript": "catalog:"
+  }
+}

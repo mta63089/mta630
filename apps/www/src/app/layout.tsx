@@ -8,6 +8,8 @@ import "@/styles/globals.css"
 
 import { Metadata } from "next/types"
 
+import RetroGrid from "@/components/retro-grid"
+
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
