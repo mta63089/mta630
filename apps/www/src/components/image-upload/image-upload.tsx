@@ -1,7 +1,7 @@
 "use client"
 
 import { useCallback, useState } from "react"
-import { UploadCloud } from "lucide-react"
+import { Upload, UploadCloud } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -14,26 +14,12 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
 
 import { Label } from "../ui/label"
 
-const TAG_OPTIONS = ["Nature", "Urban", "People", "Abstract"]
-
 function ImageUpload() {
   const [selectedImage, setSelectedImage] = useState<File | null>(null)
-  const [uploadedImagePath, setUploadedImagePath] = useState<string | null>(
-    null
-  )
   const [name, setName] = useState("")
-  const [tags, setTags] = useState<string[]>([])
-  const [description, setDescription] = useState("")
 
   const convertToWebP = (file: File): Promise<File> => {
     return new Promise((resolve) => {
@@ -76,12 +62,10 @@ function ImageUpload() {
     form.append("file", webp)
     form.append("name", name)
     form.append("tags", JSON.stringify(tags))
-    form.append("description", description)
 
-    const res = await fetch("/api/image/upload", { method: "POST", body: form })
-    const { url } = await res.json()
-    setUploadedImagePath(url)
-  }, [selectedImage, name, tags, description])
+    await fetch("/api/image/upload", { method: "POST", body: form })
+    // TODO: STORE IMAGE PATH IN DB const { url } = await res.json()
+  }, [selectedImage, name])
 
   return (
     <Dialog>
@@ -127,37 +111,14 @@ function ImageUpload() {
             />
           </div>
 
-          <div className="grid gap-3">
-            <Label htmlFor="description-1">Describe your image</Label>
-            <Input
-              id="description-1"
-              placeholder="Optional"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-          </div>
-
-          <div className="grid gap-3">
-            <Label>Select Tag</Label>
-            <Select onValueChange={(value) => setTags([value])}>
-              <SelectTrigger>
-                <SelectValue placeholder="Select Tag" />
-              </SelectTrigger>
-              <SelectContent>
-                {TAG_OPTIONS.map((tag) => (
-                  <SelectItem key={tag} value={tag}>
-                    {tag}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-
           <div className="flex justify-end gap-2 pt-4">
             <DialogClose asChild>
               <Button variant="outline">Cancel</Button>
             </DialogClose>
-            <Button type="submit">Upload</Button>
+            <Button type="submit">
+              <Upload />
+              Upload
+            </Button>
           </div>
         </form>
       </DialogContent>

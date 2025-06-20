@@ -24,23 +24,13 @@ export function SiteHeader() {
         </div>
         {/* HEADER FOR COMPUTER */}
         <nav className="hidden md:block">
-          <ul className="flex items-center justify-between">
+          <ul className="flex items-center justify-between gap-8">
             {siteConfig.nav.map((item) => (
               <li key={item.name}>
                 <Link href={item.href}>
-                  <motion.button
-                    whileHover={{
-                      scale: 1.3,
-                      backgroundColor: "#000",
-                      transition: { duration: 1.2 },
-                    }}
-                    className="text-2xl"
-                  >
+                  <button className="cursor-pointer rounded-full p-2 text-2xl transition-all duration-300 ease-in-out hover:bg-slate-800/30">
                     {item.name}
-                  </motion.button>
-                  <Button className="text-2xl shadow-none" variant="link">
-                    {item.name}
-                  </Button>
+                  </button>
                 </Link>
               </li>
             ))}

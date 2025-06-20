@@ -71,7 +71,12 @@ interface RootLayoutProps {
 export default async function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head />
+      <head>
+        <meta
+          name="google-adsense-account"
+          content={process.env.GOOGLE_ADSENSE_META}
+        />
+      </head>
       <body
         className={cn(
           "bg-background min-h-svh font-sans antialiased md:subpixel-antialiased",

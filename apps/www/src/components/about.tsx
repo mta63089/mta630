@@ -22,22 +22,22 @@ export default function About() {
           <p className="text-muted-foreground text-lg leading-relaxed">
             At the core of everything we make is our custom-built system of
             composable blocks. Think of it like digital infrastructure LEGO -
-            pre-built, tested, and ready to snap into place. Whether it's an
-            admin dashboard, e-commerce flow, or user auth - if it's repetitive,
-            we've likely automated it already.
+            pre-built, tested, and ready to snap into place. Whether it&apos;s
+            an admin dashboard, e-commerce flow, or user auth - if it&apos;s
+            repetitive, we&apos;ve likely automated it already.
           </p>
 
           <p className="text-muted-foreground text-lg leading-relaxed">
             This lets us go from idea to production in days, not months —
-            without sacrificing structure or scale. It's how we've helped solo
-            founders ship polished MVPs and helped larger teams modernize legacy
-            systems without throwing everything away.
+            without sacrificing structure or scale. It&apos;s how we&apos;ve
+            helped solo founders ship polished MVPs and helped larger teams
+            modernize legacy systems without throwing everything away.
           </p>
 
           <p className="text-muted-foreground text-lg leading-relaxed">
-            If you're tired of over-engineered tech or starting from scratch
-            every time — you're in the right place. We're here to build smarter,
-            move faster, and keep it simple.
+            If you&apos;re tired of over-engineered tech or starting from
+            scratch every time — you&apos;re in the right place. We&apos;re here
+            to build smarter, move faster, and keep it simple.
           </p>
         </div>
 

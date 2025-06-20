@@ -87,10 +87,10 @@ export default function SignIn() {
                   password,
                 },
                 {
-                  onRequest: (ctx) => {
+                  onRequest: () => {
                     setLoading(true)
                   },
-                  onResponse: (ctx) => {
+                  onResponse: () => {
                     setLoading(false)
                   },
                 }
@@ -121,10 +121,10 @@ export default function SignIn() {
                     callbackURL: "/dashboard",
                   },
                   {
-                    onRequest: (ctx) => {
+                    onRequest: () => {
                       setLoading(true)
                     },
-                    onResponse: (ctx) => {
+                    onResponse: () => {
                       setLoading(false)
                     },
                   }
@@ -167,10 +167,10 @@ export default function SignIn() {
                     callbackURL: "/dashboard",
                   },
                   {
-                    onRequest: (ctx) => {
+                    onRequest: () => {
                       setLoading(true)
                     },
-                    onResponse: (ctx) => {
+                    onResponse: () => {
                       setLoading(false)
                     },
                   }
@@ -201,10 +201,10 @@ export default function SignIn() {
                     callbackURL: "/dashboard",
                   },
                   {
-                    onRequest: (ctx) => {
+                    onRequest: () => {
                       setLoading(true)
                     },
-                    onResponse: (ctx) => {
+                    onResponse: () => {
                       setLoading(false)
                     },
                   }

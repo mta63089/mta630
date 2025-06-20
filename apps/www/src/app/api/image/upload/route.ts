@@ -1,38 +1,71 @@
-// app/api/upload/route.ts
 import { randomUUID } from "crypto"
 import { NextRequest, NextResponse } from "next/server"
 import { Storage } from "@google-cloud/storage"
+import prisma from "@mta630/db"
 
-import { db, images } from "@/lib/db"
 import { credentials } from "@/lib/gcloud"
 
 const storage = new Storage({ credentials })
 const bucketName = process.env.GOOGLE_CLOUD_BUCKET || ""
 const bucket = storage.bucket(bucketName)
 
+const MAX_FILE_SIZE = 10 * 1024 * 1024 // 10MB
+const ALLOWED_MIME_TYPES = [
+  "image/webp",
+  "image/png",
+  "image/jpeg",
+  "image/svg",
+]
+
 export async function POST(req: NextRequest) {
-  const formData = await req.formData()
-  const file = formData.get("file") as File
-  const name = formData.get("name") as string
-  const tags = formData.get("tags") as string
-  const description = formData.get("description") as string | null
+  try {
+    const formData = await req.formData()
+    const file = formData.get("file") as File
+    const name = formData.get("name") as string | null
 
-  if (!file) return NextResponse.json({ error: "No file" }, { status: 400 })
+    if (!file || !(file instanceof File)) {
+      return NextResponse.json(
+        { error: "Invalid or missing file." },
+        { status: 400 }
+      )
+    }
 
-  const buffer = Buffer.from(await file.arrayBuffer())
-  const destFileName = `${randomUUID()}-${file.name}`
-  const blob = bucket.file(destFileName)
+    if (!ALLOWED_MIME_TYPES.includes(file.type)) {
+      return NextResponse.json(
+        { error: "Unsupported file type." },
+        { status: 415 }
+      )
+    }
 
-  await blob.save(buffer, { metadata: { contentType: file.type } })
-  const publicUrl = `https://storage.googleapis.com/${bucketName}/${destFileName}`
+    if (file.size > MAX_FILE_SIZE) {
+      return NextResponse.json({ error: "File too large." }, { status: 413 })
+    }
 
-  await db.insert(images).values({
-    id: randomUUID(),
-    url: publicUrl,
-    name,
-    tags,
-    description,
-  })
+    const arrayBuffer = await file.arrayBuffer()
+    const buffer = Buffer.from(arrayBuffer)
 
-  return NextResponse.json({ url: publicUrl })
+    const filename = `${randomUUID()}-${file.name}`
+    const blob = bucket.file(filename)
+
+    await blob.save(buffer, { metadata: { contentType: file.type } })
+
+    const publicUrl = `https://storage.googleapis.com/${bucketName}/${filename}`
+
+    const image = await prisma.image.create({
+      data: {
+        id: randomUUID(),
+        name: name || null,
+        filename,
+        url: publicUrl,
+      },
+    })
+
+    return NextResponse.json({ image })
+  } catch (err) {
+    console.error("Upload failed:", err)
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 }
+    )
+  }
 }

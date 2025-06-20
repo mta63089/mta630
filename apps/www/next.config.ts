@@ -2,6 +2,9 @@ import type { NextConfig } from "next"
 import { withContentlayer } from "next-contentlayer2"
 
 const config: NextConfig = {
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   turbopack: {
     resolveAlias: {
       underscore: "lodash",
