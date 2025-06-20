@@ -48,7 +48,7 @@ function PageTitle({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       className={cn(
-        "bg-chart-3 mx-auto px-2 text-6xl font-black tracking-tighter",
+        "mx-auto px-2 text-6xl font-black tracking-tighter",
         className
       )}
       {...props}
@@ -66,7 +66,7 @@ function PageDescription({
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, delay: 0.5 }}
       className={cn(
-        "text-sm leading-snug font-extralight md:text-lg",
+        "text-sm leading-snug font-extralight text-gray-600 md:text-lg",
         className
       )}
       {...props}
@@ -83,10 +83,7 @@ function PageContent({
       initial={{ x: -100, opacity: 0 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 1, delay: 1 }}
-      className={cn(
-        "bg-chart-3 my-4 flex min-h-svh flex-col border-2 p-8 shadow-2xl",
-        className
-      )}
+      className={cn("", className)}
       {...props}
     />
   )

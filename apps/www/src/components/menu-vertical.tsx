@@ -27,7 +27,7 @@ export const MenuVertical = ({
       {menuItems.map((item, index) => (
         <motion.div
           key={`${item.href}-${index}`}
-          className="group/nav flex cursor-pointer items-center gap-2 text-zinc-900 dark:text-zinc-50"
+          className="group/nav flex cursor-pointer items-center gap-2 text-zinc-900"
           initial="initial"
           whileHover="hover"
         >
