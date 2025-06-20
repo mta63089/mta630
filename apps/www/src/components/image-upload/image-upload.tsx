@@ -61,7 +61,6 @@ function ImageUpload() {
     const form = new FormData()
     form.append("file", webp)
     form.append("name", name)
-    form.append("tags", JSON.stringify(tags))
 
     await fetch("/api/image/upload", { method: "POST", body: form })
     // TODO: STORE IMAGE PATH IN DB const { url } = await res.json()

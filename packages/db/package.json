@@ -1,10 +1,10 @@
 {
   "name": "@mta630/db",
   "version": "0.0.0",
+  "type": "commonjs",
   "exports": {
     ".": {
-      "development": "./src/index.ts",
-      "import": "./dist/index.mjs",
+      "default": "./dist/index.js",
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts"
     }

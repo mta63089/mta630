@@ -2,6 +2,7 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
     "allowJs": true,
+    "incremental": true,
     "jsx": "preserve",
     "module": "ESNext",
     "moduleResolution": "bundler",
