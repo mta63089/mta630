@@ -66,7 +66,7 @@ function PageDescription({
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, delay: 0.5 }}
       className={cn(
-        "text-sm leading-snug font-extralight text-gray-600 md:text-lg",
+        "py-4 text-base font-extralight text-gray-600 md:text-xl xl:text-2xl",
         className
       )}
       {...props}
@@ -83,7 +83,7 @@ function PageContent({
       initial={{ x: -100, opacity: 0 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 1, delay: 1 }}
-      className={cn("", className)}
+      className={cn("mx-auto", className)}
       {...props}
     />
   )

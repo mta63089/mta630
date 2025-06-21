@@ -9,7 +9,17 @@ const config: NextConfig = {
     resolveAlias: {
       underscore: "lodash",
     },
-    resolveExtensions: [".mdx", ".tsx", ".ts", ".jsx", ".js", ".json"],
+    resolveExtensions: [
+      ".mdx",
+      ".tsx",
+      ".ts",
+      ".jsx",
+      ".js",
+      ".mjs",
+      ".cjs",
+      ".json",
+      ".prisma",
+    ],
   },
   images: {
     remotePatterns: [

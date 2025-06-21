@@ -27,6 +27,11 @@ export const siteConfig = {
       description: "Check to see how readable your color scheme/palette is!",
       href: "/tools/color-contrast-analyzer",
     },
+    {
+      name: "Random Joke Generator",
+      description: "Get a Funny!",
+      href: "/tools/jokes",
+    },
   ],
 }
 

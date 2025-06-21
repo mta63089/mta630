@@ -11,6 +11,7 @@
   },
   "scripts": {
     "build": "pnpm db:generate && tsup src/index.ts --format cjs,esm && tsc --emitDeclarationOnly --declaration",
+    "copy:client": "mkdir -p ../../apps/www/.next/server/prisma && cp -r ./generated/prisma-client/* ../../apps/www/.next/server/prisma/",
     "db:deploy": "prisma migrate deploy",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev --skip-generate",
