@@ -1,9 +1,9 @@
 import { randomUUID } from "crypto"
 import { NextRequest, NextResponse } from "next/server"
 import { Storage } from "@google-cloud/storage"
-import prisma from "@mta630/db"
 
 import { credentials } from "@/lib/gcloud"
+import prisma from "@/lib/prisma"
 
 const storage = new Storage({ credentials })
 const bucketName = process.env.GOOGLE_CLOUD_BUCKET || ""

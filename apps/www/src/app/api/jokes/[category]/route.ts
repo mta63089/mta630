@@ -3,7 +3,7 @@ import { NextResponse } from "next/server"
 import { JokeCategory } from "@/types/jokes"
 
 export async function GET(
-  request: Request,
+  _request: Request,
   context: { params: { category: JokeCategory } }
 ) {
   try {
@@ -22,6 +22,7 @@ export async function GET(
       data: joke,
     })
   } catch (error) {
+    console.error(error)
     return NextResponse.json(
       { error: "Internal Server Error" },
       { status: 500 }

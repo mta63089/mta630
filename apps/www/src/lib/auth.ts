@@ -1,10 +1,10 @@
 // lib/auth.ts
-import prisma from "@mta630/db"
 import { betterAuth } from "better-auth"
 import { prismaAdapter } from "better-auth/adapters/prisma"
 import { nextCookies } from "better-auth/next-js"
 import { username } from "better-auth/plugins"
 
+import prisma from "@/lib/prisma"
 import { reactVerificationEmail } from "@/components/verification-email"
 
 import { resend } from "./resend"

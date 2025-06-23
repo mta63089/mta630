@@ -1,8 +1,0 @@
-[functions]
-  node_bundler = "esbuild"
-
-  # include the prisma client and engines
-  included_files = [
-    "../packages/db/generated/prisma-client/**",
-    "../node_modules/.prisma/client/**"
-  ]
