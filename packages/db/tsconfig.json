@@ -1,7 +1,0 @@
-{
-  "extends": "@mta630/typescript-config/base.json",
-  "compilerOptions": {
-    "outDir": "./dist"
-  },
-  "include": ["src"]
-}

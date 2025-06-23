@@ -12,7 +12,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "postinstall": "pnpm -F @mta630/db build",
+    "postinstall": "pnpm -F www db:generate",
     "dev": "turbo run dev",
     "build": "turbo run build",
     "start": "turbo run start",
