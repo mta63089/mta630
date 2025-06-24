@@ -83,7 +83,7 @@ function PageContent({
       initial={{ x: -100, opacity: 0 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 1, delay: 1 }}
-      className={cn("mx-auto", className)}
+      className={cn("mx-auto min-w-3/4 flex-1", className)}
       {...props}
     />
   )

@@ -12,9 +12,6 @@ export default function Gallery({
 }) {
   return (
     <div className="bg-background container mx-auto px-4 py-16">
-      <h2 className="mb-8 text-center text-3xl font-bold">
-        Come Explore <span className="text-primary">Celestial Nights</span>
-      </h2>
       <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
         {images.map((image, index) => (
           <GalleryItem key={index} image={image} />

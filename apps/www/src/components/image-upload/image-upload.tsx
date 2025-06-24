@@ -69,7 +69,7 @@ function ImageUpload() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">
+        <Button variant="outline" className="w-fit self-center shadow-none">
           <UploadCloud size={16} className="mr-2" /> Upload an Image
         </Button>
       </DialogTrigger>

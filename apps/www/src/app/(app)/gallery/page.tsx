@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 import Gallery from "@/components/gallery"
 import ImageUpload from "@/components/image-upload/image-upload"
 import {
+  PageContent,
   PageDescription,
   PageHeader,
   PageLayout,
@@ -34,11 +35,11 @@ export default function GalleryPage() {
             A public gallery page where you can upload and download image! Built
             from the ground up using Google Cloud and a custom API
           </PageDescription>
+          <ImageUpload />
         </PageHeader>
-
-        <ImageUpload />
-
-        <Gallery images={images}></Gallery>
+        <PageContent>
+          <Gallery images={images}></Gallery>
+        </PageContent>
       </PageLayout>
     </>
   )
