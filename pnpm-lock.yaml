@@ -19,7 +19,7 @@ catalogs:
       specifier: ^19
       version: 19.1.6
     eslint:
-      specifier: ^9
+      specifier: ^9.28.0
       version: 9.28.0
     next:
       specifier: ^15.3.4
