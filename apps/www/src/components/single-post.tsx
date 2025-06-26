@@ -13,8 +13,8 @@ import { Card, CardContent } from "@/components/ui/card"
 
 export function SinglePost(post: Post) {
   return (
-    <div className="container flex justify-center">
-      <Card className="w-full max-w-md overflow-hidden">
+    <div>
+      <Card className="w-full overflow-hidden">
         <div className="relative h-64">
           <Image
             src={post.imageSrc}
