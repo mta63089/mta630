@@ -48,7 +48,25 @@ model Category {
     @@map("category")
 }
 
-// Join table for many-to-many relationship between Todo and Category
+model File {
+  id         String   @id @default(nanoid())
+  name       String?  // optional human-readable name
+  filename   String   // actual filename on NAS
+  path       String   // relative or absolute path on NAS
+  url        String   @unique // accessible URL or proxy path
+  mimeType   String
+  extension  String
+  size       Int
+  tags       String[] // optional tags (array of strings)
+  uploadedBy String   // user id of uploader
+
+  createdAt  DateTime @default(now())
+
+  uploader   User     @relation(fields: [uploadedBy], references: [id], onDelete: Cascade)
+
+  @@index([uploadedBy])
+  @@map("file")
+}
 
 model CategoriesOnTodos {
     todoId     String
@@ -72,6 +90,7 @@ model User {
     accounts      Account[]
     todos         Todo[]
     categories    Category[]
+    files         File[]
 
     @@unique([email])
     @@map("user")
