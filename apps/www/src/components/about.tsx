@@ -1,11 +1,23 @@
 import Image from "next/image"
+import Link from "next/link"
 import { Mail } from "lucide-react"
 
 import { Icons } from "./icons"
+import { Button } from "./ui/button"
 
 export default function About() {
   return (
     <section className="mx-8 py-4 md:py-8">
+      <div className="bg-accent/60 mx-auto mb-12 flex flex-col items-center gap-8 rounded-3xl py-8">
+        <h1 className="w-1/2 text-3xl font-light">
+          Take the new Political Ideology Quiz!
+        </h1>
+        <div className="">
+          <Link href="/quiz">
+            <Button>Take the Quiz</Button>
+          </Link>
+        </div>
+      </div>
       <div className="mb-12 grid flex-1 grid-cols-2 gap-8">
         <div className="flex flex-1 flex-col gap-8">
           <h2 className="tracking-tights mb-6 text-3xl font-bold md:text-5xl">
