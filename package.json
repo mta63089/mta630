@@ -20,15 +20,21 @@
     "check-types": "turbo run check-types"
   },
   "dependencies": {
+    "@svgr/core": "^8.1.0",
     "eslint": "catalog:",
     "eslint-config-next": "15.3.1",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-react": "^7.37.5",
-    "prettier": "^3.5.3"
+    "potrace": "^2.1.8",
+    "prettier": "^3.5.3",
+    "sharp": "^0.34.3",
+    "svgo": "^4.0.0",
+    "yargs": "^18.0.0"
   },
   "devDependencies": {
-    "typescript": "catalog:",
-    "turbo": "^2.5.4"
+    "tsx": "^4.20.3",
+    "turbo": "^2.5.4",
+    "typescript": "catalog:"
   },
   "license": "MIT",
   "packageManager": "pnpm@10.10.0"

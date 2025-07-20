@@ -9,7 +9,7 @@ export const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "shadow-md hover:shadow-none bg-primary text-black border-2 border-black transition hover:translate-y-1 hover:bg-primary-hover",
+          "shadow-md hover:shadow-none bg-primary text-primary-foreground border-2 border-black transition hover:translate-y-1 hover:bg-primary-hover",
         secondary:
           "shadow-md hover:shadow-none hover:bg-secondary/80 bg-secondary shadow-primary text-secondary-foreground border-2 border-black transition hover:translate-y-1",
         outline:

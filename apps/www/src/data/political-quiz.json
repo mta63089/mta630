@@ -1,0 +1,367 @@
+[
+  {
+    "id": 1,
+    "question": "I support a government-run healthcare system where all citizens receive health services paid for through taxes, known as a single-payer healthcare system.",
+    "weights": {
+        "socialism": 3,
+        "libertarian": 3
+
+    }
+  },
+  {
+    "id": 2,
+    "question": "I believe individuals should be responsible for paying for their healthcare through private insurance or out-of-pocket costs."
+  },
+  {
+    "id": 3,
+    "question": "I think healthcare should be a basic human right provided by the government, similar to public education or police protection."
+  },
+  {
+    "id": 4,
+    "question": "I believe that having both public and private healthcare options is better than a fully government-run system."
+  },
+  {
+    "id": 5,
+    "question": "I believe public healthcare reduces overall medical costs for society by removing the profit incentive."
+  },
+  {
+    "id": 6,
+    "question": "I believe a government-funded healthcare system may limit access to newer or cutting-edge treatments."
+  },
+  {
+    "id": 7,
+    "question": "I think a government-regulated drug pricing system would reduce costs for essential medications."
+  },
+  {
+    "id": 8,
+    "question": "I believe wealthier individuals should pay higher taxes to fund healthcare services for those who cannot afford them."
+  },
+  {
+    "id": 9,
+    "question": "I support a system where health services are allocated based on need rather than ability to pay."
+  },
+  {
+    "id": 10,
+    "question": "I believe that competition between private healthcare providers leads to better quality services."
+  },
+  {
+    "id": 11,
+    "question": "I support government-funded childcare programs to reduce the financial burden on working families."
+  },
+  {
+    "id": 12,
+    "question": "I believe private companies should not be allowed to profit from basic services like water, electricity, or internet."
+  },
+  {
+    "id": 13,
+    "question": "I think public transportation should be free and paid for through local or national taxes."
+  },
+  {
+    "id": 14,
+    "question": "I believe that nationalizing industries like energy and railways improves long-term reliability and fairness."
+  },
+  {
+    "id": 15,
+    "question": "I support government-funded housing assistance for low-income families and individuals."
+  },
+  {
+    "id": 16,
+    "question": "I believe rent control laws help prevent housing crises and homelessness."
+  },
+  {
+    "id": 17,
+    "question": "I support the idea that individuals should be able to own unlimited amounts of private property, including real estate."
+  },
+  {
+    "id": 18,
+    "question": "I think landlords provide a necessary service and should be allowed to charge market rates for rent."
+  },
+  {
+    "id": 19,
+    "question": "I believe housing is a human right, and the government should guarantee housing to all citizens."
+  },
+  {
+    "id": 20,
+    "question": "I think large corporations should be heavily taxed to fund social programs that benefit the general population."
+  },
+  {
+    "id": 21,
+    "question": "I believe free markets, without much government interference, lead to innovation and growth."
+  },
+  {
+    "id": 22,
+    "question": "I support strict government regulations to reduce pollution and protect the environment, even if it increases costs for businesses."
+  },
+  {
+    "id": 23,
+    "question": "I think climate change is primarily caused by human activity and requires immediate government action."
+  },
+  {
+    "id": 24,
+    "question": "I believe environmental policy should prioritize long-term sustainability over short-term economic gain."
+  },
+  {
+    "id": 25,
+    "question": "I support higher taxes on corporations that emit greenhouse gases or pollute natural resources."
+  },
+  {
+    "id": 26,
+    "question": "I think national governments should invest in renewable energy even if fossil fuels are currently cheaper."
+  },
+  {
+    "id": 27,
+    "question": "I support bans or limits on single-use plastics to reduce environmental waste."
+  },
+  {
+    "id": 28,
+    "question": "I believe education should be entirely free, including university-level education, and funded through taxes."
+  },
+  {
+    "id": 29,
+    "question": "I think private schools should not receive government funding or subsidies."
+  },
+  {
+    "id": 30,
+    "question": "I believe that public education should include comprehensive sex education, regardless of parental consent."
+  },
+  {
+    "id": 31,
+    "question": "I support policies that aim to close racial and economic achievement gaps in education through additional funding."
+  },
+  {
+    "id": 32,
+    "question": "I believe standardized testing is not a fair measure of student or teacher performance."
+  },
+  {
+    "id": 33,
+    "question": "I support progressive taxation, where higher earners pay a higher percentage of their income in taxes."
+  },
+  {
+    "id": 34,
+    "question": "I think a flat tax rate is fairer than taxing people based on income levels."
+  },
+  {
+    "id": 35,
+    "question": "I support taxing wealth, such as real estate or stock portfolios, in addition to income."
+  },
+  {
+    "id": 36,
+    "question": "I believe that government welfare programs should be expanded, even if it increases the national debt."
+  },
+  {
+    "id": 37,
+    "question": "I think most people on welfare programs are trying their best and genuinely need help."
+  },
+  {
+    "id": 38,
+    "question": "I believe long-term reliance on welfare indicates a failure in the individual, not the system."
+  },
+  {
+    "id": 39,
+    "question": "I support a universal basic income — a fixed amount of money paid to all adults regardless of income or employment status."
+  },
+  {
+    "id": 40,
+    "question": "I believe that expanding government programs often leads to inefficiency and waste."
+  },
+  {
+    "id": 41,
+    "question": "I think the government should guarantee paid parental leave for new parents."
+  },
+  {
+    "id": 42,
+    "question": "I believe minimum wage should be adjusted regularly to match the cost of living."
+  },
+  {
+    "id": 43,
+    "question": "I believe unions are essential to protecting workers’ rights and ensuring fair pay and working conditions."
+  },
+  {
+    "id": 44,
+    "question": "I support laws requiring companies to share profits with their workers or give them ownership stakes."
+  },
+  {
+    "id": 45,
+    "question": "I think worker-owned cooperatives are a more ethical business model than corporations with outside shareholders."
+  },
+  {
+    "id": 46,
+    "question": "I believe police budgets should be reduced in favor of investing in education, mental health, and housing."
+  },
+  {
+    "id": 47,
+    "question": "I think the police serve an essential role in maintaining public safety and should receive adequate funding and equipment."
+  },
+  {
+    "id": 48,
+    "question": "I support community-led public safety initiatives as alternatives to traditional policing."
+  },
+  {
+    "id": 49,
+    "question": "I believe systemic racism exists within law enforcement and requires major reforms."
+  },
+  {
+    "id": 50,
+    "question": "I think people who commit nonviolent crimes should receive rehabilitation and support instead of jail time."
+  },
+  {
+    "id": 51,
+    "question": "I believe my country should prioritize diplomacy and multilateral agreements over military interventions."
+  },
+  {
+    "id": 52,
+    "question": "Military action is sometimes necessary to protect national interests, even without international approval."
+  },
+  {
+    "id": 53,
+    "question": "I think foreign aid should be increased to support struggling countries and promote global stability."
+  },
+  {
+    "id": 54,
+    "question": "I support using economic sanctions against countries that violate human rights or international law."
+  },
+  {
+    "id": 55,
+    "question": "My country should not involve itself in foreign conflicts unless directly attacked or threatened."
+  },
+  {
+    "id": 56,
+    "question": "I believe international institutions like the United Nations play a critical role in maintaining peace."
+  },
+  {
+    "id": 57,
+    "question": "I think military alliances, such as NATO, are essential for national security."
+  },
+  {
+    "id": 58,
+    "question": "I believe maintaining a strong military presence globally helps deter threats to national interests."
+  },
+  {
+    "id": 59,
+    "question": "I think promoting democracy in other countries is a justified goal of foreign policy."
+  },
+  {
+    "id": 60,
+    "question": "I support reducing military spending in favor of investing in domestic programs."
+  },
+  {
+    "id": 61,
+    "question": "I believe immigration strengthens our society culturally and economically."
+  },
+  {
+    "id": 62,
+    "question": "Immigrants should be required to pass a basic test of language and civics to gain permanent residency."
+  },
+  {
+    "id": 63,
+    "question": "I support providing a path to citizenship for undocumented immigrants already living in the country."
+  },
+  {
+    "id": 64,
+    "question": "I believe borders should be more open to people fleeing war, climate disaster, or poverty."
+  },
+  {
+    "id": 65,
+    "question": "Strict border enforcement is necessary to maintain national sovereignty and security."
+  },
+  {
+    "id": 66,
+    "question": "I think immigration should be limited to protect jobs and wages for citizens."
+  },
+  {
+    "id": 67,
+    "question": "I believe all people, regardless of origin, deserve equal rights and access to services when living in the country."
+  },
+  {
+    "id": 68,
+    "question": "I support sanctuary cities that refuse to cooperate with federal immigration enforcement."
+  },
+  {
+    "id": 69,
+    "question": "Refugees should be admitted into the country even if they lack complete documentation."
+  },
+  {
+    "id": 70,
+    "question": "Deporting undocumented immigrants should be a priority for law enforcement."
+  },
+  {
+    "id": 71,
+    "question": "Economic policy should focus on reducing income inequality even if it slows GDP growth."
+  },
+  {
+    "id": 72,
+    "question": "I believe small businesses are the backbone of the economy and should receive more support than large corporations."
+  },
+  {
+    "id": 73,
+    "question": "Free trade agreements help improve economic efficiency and should be supported."
+  },
+  {
+    "id": 74,
+    "question": "I support tariffs to protect domestic industries from foreign competition."
+  },
+  {
+    "id": 75,
+    "question": "The government should intervene during economic crises to provide stimulus and prevent collapse."
+  },
+  {
+    "id": 76,
+    "question": "I believe monopolies and corporate consolidation harm consumers and workers and should be broken up."
+  },
+  {
+    "id": 77,
+    "question": "Access to banking and credit should be treated as a public utility and regulated accordingly."
+  },
+  {
+    "id": 78,
+    "question": "The stock market does not accurately reflect the health of the average person’s economy."
+  },
+  {
+    "id": 79,
+    "question": "I support higher inheritance taxes to reduce wealth concentration across generations."
+  },
+  {
+    "id": 80,
+    "question": "The government should guarantee a job to anyone willing and able to work, possibly through public works programs."
+  },
+  {
+    "id": 81,
+    "question": "Cryptocurrencies should be more heavily regulated to prevent financial crimes and manipulation."
+  },
+  {
+    "id": 82,
+    "question": "Basic utilities (electricity, water, broadband) should be publicly owned or heavily regulated to ensure affordability."
+  },
+  {
+    "id": 83,
+    "question": "I believe inflation should be controlled through interest rates even if it causes higher unemployment."
+  },
+  {
+    "id": 84,
+    "question": "I support economic localization — policies that favor local production and consumption over global trade."
+  },
+  {
+    "id": 85,
+    "question": "I believe economic growth is not as important as reducing poverty and improving quality of life."
+  },
+  {
+    "id": 86,
+    "question": "Tax loopholes for large corporations should be aggressively closed."
+  },
+  {
+    "id": 87,
+    "question": "Stock buybacks should be restricted or taxed heavily because they prioritize shareholders over workers."
+  },
+  {
+    "id": 88,
+    "question": "I support a maximum income policy, capping how much a person can earn annually."
+  },
+  {
+    "id": 89,
+    "question": "Economic planning should involve worker representatives, not just business leaders and economists."
+  },
+  {
+    "id": 90,
+    "question": "Public infrastructure projects should be prioritized over private sector incentives in government budgets."
+  }
+]
