@@ -2,6 +2,7 @@
   "name": "mta630",
   "version": "0.0.1",
   "private": true,
+  "type": "module",
   "engines": {
     "node": ">=22.14.0",
     "pnpm": ">=9.6.0"
