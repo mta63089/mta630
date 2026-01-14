@@ -112,7 +112,7 @@
     "tailwindcss-motion": "^1.1.0",
     "tw-animate-css": "^1.3.4",
     "typescript": "catalog:",
-    "undici": "^7.12.0",
+    "undici": "^7.18.2",
     "vitest": "^3.2.4"
   },
   "prettier": {
