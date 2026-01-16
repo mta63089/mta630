@@ -63,7 +63,7 @@
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.17.3",
     "jotai": "^2.12.3",
-    "langchain": "^0.3.29",
+    "langchain": "^0.3.37",
     "lucide-react": "^0.503.0",
     "motion": "^12.16.0",
     "nanoid": "^5.1.5",
